@@ -1,4 +1,5 @@
 @use './partials/global' as *;
+@use './partials/mixins' as *;
 
 .header {
     background: #323232;

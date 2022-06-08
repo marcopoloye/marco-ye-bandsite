@@ -6,6 +6,12 @@
     display: flex;
     flex-direction: column;
 
+    &__list {
+        display: flex;
+        font-family: 'avenir-demi';
+        text-align: center;
+    }
+
     &__logo {
         font-family: 'Avenir-Regular';
         color: white;
@@ -13,8 +19,8 @@
         font-size: 1.5rem;
         font-weight: 100;
         text-align: center;
-        margin: 0 auto;
-        padding-top: 1rem;
+        margin: 1rem auto 0;
+        
     }
     &__list {
         font-family: 'Avenir-Regular';
@@ -27,25 +33,54 @@
         margin-top: 0.45rem;
         text-align: center;
 
-        &-item {
+        &-item--bio, &-item--shows {
             min-width: 50%;
             padding-bottom: .55rem;
         }
         &-link {
             text-decoration: none;
         }
-    }    
+    }
+
+    @include tablet {
+        flex-direction: row;
+        justify-content: flex-start;
+
+        &__logo {
+            margin-left: 2rem;
+            margin-right: 4rem;
+            margin-top: 1.35rem;
+            margin-bottom: 1.25rem;
+        }
+        &__list-item--bio {
+            min-width: 40%;
+            margin-right: 3.75rem;
+            padding-top: 1.25rem;
+            padding-bottom: 1.25rem;
+        }
+        &__list-link {
+            padding-top: 1.25rem;
+            padding-bottom: 1.25rem;
+        }
+        &__list-item--shows {
+            min-width: 20%;
+            padding-top: 1.25rem;
+            padding-bottom: 1.25rem;
+
+        }
+    
+    }
 }
 
 #header__list--bio {
-    border-bottom: white solid 4px;
+    border-bottom: white solid 0.25rem;
 }
 #header__list--bio-link {
     color: white;
     font-weight: 800;
 }
 #header__list--shows:hover {
-    border-bottom: white solid 4px;
+    border-bottom: white solid 4 0.25rem;
 }
 #header__list--shows-link {
     color: #e1e1e1;
@@ -65,28 +100,38 @@
         font-family: 'avenir-demi';
         padding: 5.25rem 1rem;
     }
+    @include tablet {
+        &__heading {
+            padding: 12rem 1rem;
+            font-size: 3.5rem;
+        }
+    }
 }
 
 .about {
     display: flex;
     flex-direction: column;
     margin: 0 1rem 0;
-    color:#323232;
+    color: #323232;
 
     &__heading {
         font-family: 'avenir-demi';
         margin: 1.75rem 0 1rem;
         line-height: 1.25rem;
-
+    }
+    &__image {
+        width: 100%;
     }
     &__quote {
         font-family: 'avenir-demi';
         font-size: .9rem;
-        line-height: 24px;
+        line-height: 1.5rem;
         margin-bottom: 0;
     }
     &__speaker {
-        @extend .about__quote;
+        font-family: 'avenir-demi';
+        font-size: .9rem;
+        line-height: 1.5rem;
         margin: .35rem 0 .75rem;
     }
     &__subheading {
@@ -95,10 +140,51 @@
         margin-bottom: 0.2rem;
     }
     &__text {
-        @extend .about__subheading;
+        font-family: 'avenir-regular';
+        font-size: .85rem; 
+        margin-bottom: 0.2rem;
         line-height: 1.15rem;
         font-size: .8rem;
         margin-right: .75rem;
+    }
+    @include tablet {
+        display: flex;
+        flex-direction: column;
+
+        &__heading-box {
+            padding-left: 1.25rem;
+        }
+        &__image-box {
+            margin: 1.25rem 5.5rem;
+        }
+        &__heading {
+            display: flex;
+            font-size: 2rem;
+            padding-top: 2rem;
+        }
+        &__image {
+            width: 100%;
+        }
+        &__quote {
+            font-size: 1.35rem;
+            line-height: 2rem;
+            word-spacing: 1.1px;
+        }
+        &__speaker {
+            font-size: 1rem;
+            margin-bottom: 3rem;
+        }
+        &__subheading {
+            font-size: 1.5rem;
+            font-family: avenir-demi
+        }
+        &__text {
+            line-height: 1.4rem;
+            font-size: .85rem;
+        }
+        &__text-box {
+            display: flex;
+        }
     }
 }
 
@@ -122,11 +208,28 @@
         margin-top: 1rem;
         margin-bottom: 0;
     }
-}
+    @include tablet {
+        &__heading {
+            font-size: 2.25rem;
+            padding: 3rem .75rem .35rem;
+        }
+        &__image-box {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding-bottom: 2rem;
+        }
+        &__image {
+            width: 30%;
+            padding: .25rem .75rem
+        }
+    }
+
+ }
+
 
 .footer {
     background: #323232;
-    margin-top: 1rem;
     padding: 0.5rem 1rem;
     color: white;
 
@@ -159,10 +262,14 @@
         margin: 0 0 2.25rem;
     }
     &__logo {
-        @extend .header__logo;
         text-align: left;
-        font-size: 1.5rem;
         margin: 3.25rem 0 0;
+        font-family: 'Avenir-Regular';
+        color: white;
+        text-transform: uppercase;
+        font-size: 1.5rem;
+        font-weight: 100;
+        padding-top: 1rem;
     }
     &__copyright {
         font-family: 'avenir-regular';

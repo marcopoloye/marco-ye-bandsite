@@ -25,15 +25,19 @@ body {
   display: flex;
   flex-direction: column;
 }
-.header__logo, .footer__logo {
+.header__list {
+  display: flex;
+  font-family: "avenir-demi";
+  text-align: center;
+}
+.header__logo {
   font-family: "Avenir-Regular";
   color: white;
   text-transform: uppercase;
   font-size: 1.5rem;
   font-weight: 100;
   text-align: center;
-  margin: 0 auto;
-  padding-top: 1rem;
+  margin: 1rem auto 0;
 }
 .header__list {
   font-family: "Avenir-Regular";
@@ -46,16 +50,43 @@ body {
   margin-top: 0.45rem;
   text-align: center;
 }
-.header__list-item {
+.header__list-item--bio, .header__list-item--shows {
   min-width: 50%;
   padding-bottom: 0.55rem;
 }
 .header__list-link {
   text-decoration: none;
 }
+@media (min-width: 768px) {
+  .header {
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+  .header__logo {
+    margin-left: 2rem;
+    margin-right: 4rem;
+    margin-top: 1.35rem;
+    margin-bottom: 1.25rem;
+  }
+  .header__list-item--bio {
+    min-width: 40%;
+    margin-right: 3.75rem;
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+  }
+  .header__list-link {
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+  }
+  .header__list-item--shows {
+    min-width: 20%;
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+  }
+}
 
 #header__list--bio {
-  border-bottom: white solid 4px;
+  border-bottom: white solid 0.25rem;
 }
 
 #header__list--bio-link {
@@ -64,7 +95,7 @@ body {
 }
 
 #header__list--shows:hover {
-  border-bottom: white solid 4px;
+  border-bottom: white solid 4 0.25rem;
 }
 
 #header__list--shows-link {
@@ -86,6 +117,12 @@ body {
   font-family: "avenir-demi";
   padding: 5.25rem 1rem;
 }
+@media (min-width: 768px) {
+  .hero__heading {
+    padding: 12rem 1rem;
+    font-size: 3.5rem;
+  }
+}
 
 .about {
   display: flex;
@@ -98,24 +135,73 @@ body {
   margin: 1.75rem 0 1rem;
   line-height: 1.25rem;
 }
-.about__quote, .about__speaker {
+.about__image {
+  width: 100%;
+}
+.about__quote {
   font-family: "avenir-demi";
   font-size: 0.9rem;
-  line-height: 24px;
+  line-height: 1.5rem;
   margin-bottom: 0;
 }
 .about__speaker {
+  font-family: "avenir-demi";
+  font-size: 0.9rem;
+  line-height: 1.5rem;
   margin: 0.35rem 0 0.75rem;
 }
-.about__subheading, .about__text {
+.about__subheading {
   font-family: "avenir-regular";
   font-size: 0.85rem;
   margin-bottom: 0.2rem;
 }
 .about__text {
+  font-family: "avenir-regular";
+  font-size: 0.85rem;
+  margin-bottom: 0.2rem;
   line-height: 1.15rem;
   font-size: 0.8rem;
   margin-right: 0.75rem;
+}
+@media (min-width: 768px) {
+  .about {
+    display: flex;
+    flex-direction: column;
+  }
+  .about__heading-box {
+    padding-left: 1.25rem;
+  }
+  .about__image-box {
+    margin: 1.25rem 5.5rem;
+  }
+  .about__heading {
+    display: flex;
+    font-size: 2rem;
+    padding-top: 2rem;
+  }
+  .about__image {
+    width: 100%;
+  }
+  .about__quote {
+    font-size: 1.35rem;
+    line-height: 2rem;
+    word-spacing: 1.1px;
+  }
+  .about__speaker {
+    font-size: 1rem;
+    margin-bottom: 3rem;
+  }
+  .about__subheading {
+    font-size: 1.5rem;
+    font-family: avenir-demi;
+  }
+  .about__text {
+    line-height: 1.4rem;
+    font-size: 0.85rem;
+  }
+  .about__text-box {
+    display: flex;
+  }
 }
 
 .gallery {
@@ -138,10 +224,25 @@ body {
   margin-top: 1rem;
   margin-bottom: 0;
 }
+@media (min-width: 768px) {
+  .gallery__heading {
+    font-size: 2.25rem;
+    padding: 3rem 0.75rem 0.35rem;
+  }
+  .gallery__image-box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-bottom: 2rem;
+  }
+  .gallery__image {
+    width: 30%;
+    padding: 0.25rem 0.75rem;
+  }
+}
 
 .footer {
   background: #323232;
-  margin-top: 1rem;
   padding: 0.5rem 1rem;
   color: white;
 }
@@ -174,8 +275,13 @@ body {
 }
 .footer__logo {
   text-align: left;
-  font-size: 1.5rem;
   margin: 3.25rem 0 0;
+  font-family: "Avenir-Regular";
+  color: white;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  font-weight: 100;
+  padding-top: 1rem;
 }
 .footer__copyright {
   font-family: "avenir-regular";

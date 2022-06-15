@@ -1,0 +1,263 @@
+@use './partials/mixins' as *;
+
+@font-face {
+    font-family: 'Avenir-Regular';
+    src: url("../../assets/fonts/AvenirNextLTPro-Regular.otf");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Avenir-Demi';
+    src: url("../../assets/fonts/AvenirNextLTPro-Demi.otf");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Avenir-Bold';
+    src: url("../../assets/fonts/AvenirNextLTPro-Bold.otf");
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    margin: 0;
+}
+
+.header {
+    font: 100 1rem 'Avenir-Regular';
+    background: #323232;
+    display: flex;
+    flex-direction: column;
+
+    &__logo {
+        font-weight: 100;
+        text-transform: uppercase;
+        text-align: center;
+        margin: 1rem auto 0;
+        
+        &-link {
+            text-decoration: none;
+            color: white;
+        }
+    }
+    &__list {
+        list-style: none;
+        font-size: .85rem;
+        display: flex;
+        justify-content: center;
+        padding-left: 0;
+        margin: 0.45rem 0 0;
+        text-align: center;
+
+        &-item--shows {
+            font-weight: 100;
+            min-width: 50%;
+            padding-bottom: .75rem;
+        }
+        &-item--bio {
+            border-bottom: white solid 0.25rem;
+            min-width: 50%;
+            padding-bottom: .25rem;
+            font-family: 'Avenir-Demi';
+        }
+        &-link {
+            text-decoration: none;
+            color: white;
+            padding: 2.5rem 0;
+        }
+    }
+
+    @include tablet {
+        flex-direction: row;
+        justify-content: flex-start;
+
+        &__logo {
+            margin: 1.25rem 4rem 1.25rem 2rem;
+        }
+        &__list-item--bio {
+            min-width: 40%;
+            margin-right: 3.75rem;
+            padding: 1.25rem 0;
+        }
+
+        &__list-item--shows {
+            min-width: 20%;
+            padding: 1.25rem 0;
+        }
+    }
+
+    @include desktop { 
+        &__logo {
+            margin: 2rem 4rem 2rem 8rem;
+        }
+        &__list-item--bio {
+            min-width: 40%;
+            margin-right: 2rem;
+            padding-top: 2rem;
+        }
+        &__list-item--shows {
+            min-width: 20%;
+            padding-top: 2rem;
+        }
+    }
+}
+
+#header__list--shows:hover {
+    border-bottom: white solid 0.25rem;
+}
+
+.footer {
+    font: 100 1rem 'Avenir-Regular';
+    background: #323232;
+    padding: 0.5rem 1rem;
+    color: white;
+
+    &__heading {
+        font: 1.5rem 'avenir-demi';
+        margin-bottom: 1rem;
+    }
+    &__heading-box {
+        max-width: 25rem;
+    }
+    &__icon-box {
+        display: flex;
+        justify-content: space-between;
+        width: 40%;
+    }
+    &__subtext--name {
+        font: 800 .77rem 'Avenir-Regular';
+        line-height: .6rem;
+        margin: 1.75rem 0 0;
+    }
+    &__subtext--location, &__subtext--contact  {
+        @extend .footer__subtext--name;
+        font-weight: 100;
+    }
+
+    &__text-box--one, &__text-box--two {
+        margin: 0 0 2.25rem;
+    }
+    &__logo-box {
+        position: absolute;
+        transform: translateY(470px)
+    }
+    &__logo {
+        text-align: left;
+        margin: 3.25rem 0 0;
+        color: white;
+        text-transform: uppercase;
+        font-size: 1.5rem;
+        font-weight: 100;
+        padding-top: 1rem;
+    }
+    &__copyright {
+        font-size: .7rem;
+        padding-top: 6.25rem;
+    }
+    &__icon--instagram, &__icon--facebook, &__icon--twitter {
+        width: 115%;
+    }
+
+    @include tablet {
+        padding: 2rem 2rem 1.5rem;
+    
+        &__heading-box {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 95vw;
+        }
+        &__heading {
+            font-size: 2.15rem;
+            padding-right: 2.5rem;
+        }
+        &__logo {
+            margin: 0;
+            padding-top: .9rem;
+        }
+        &__logo-box {
+            position: static;
+            transform: none;
+        }
+        &__icon-box {
+            max-width: 7.4rem;
+            padding-right: 13.74rem;
+        }
+        &__icon-link {
+            padding-top: .6rem;
+        }
+        &__text-box {
+            display: flex;
+            justify-content: space-between;
+            padding-right: .75rem;
+        }
+        &__text-box--one, &__text-box--two {
+            margin: 0 3.25rem 1rem 0;
+        }
+        &__subtext--name {
+            font-size: .88rem;
+            line-height: .7rem;
+            margin: 1.75rem 0 0;
+        }
+        &__subtext--location, &__subtext--contact  {
+            font-size: .88rem;
+            line-height: .7rem;
+            margin: 2.25rem 0 0;
+        }
+        &__copyright {
+            padding-top: 2rem;
+            font-size: .85rem;
+        }
+    }
+    @include desktop {
+        padding: 1.15rem 0rem 1.5rem;
+
+        &__box {
+            max-width: 80vw;
+            margin: auto;
+        }
+        &__icon-box {
+            max-width: 7.4rem;
+            padding-right: 32.5rem;
+        }
+        &__heading {
+            font-size: 2.25rem;
+            padding-right: 3.5rem;
+        }
+        &__heading-box {
+            display: flex;
+            align-items: center;
+            max-width: 150vw;
+        }
+        &__logo-box {
+            padding-right: 0em;
+        }
+        &__text-box {
+            justify-content: space-between;
+        }
+        &__text-box--one, &__text-box--two {
+            margin: 0 0rem 1rem 0;
+        }
+        &__text-box--three {
+            margin-right: 17rem;
+        }
+        &__subtext--name {
+            font-size: .8rem;
+            line-height: .7rem;
+            letter-spacing: .75px;
+            margin: 1.5rem 0 0;
+        }
+        &__subtext--location, &__subtext--contact  {
+            font-size: .8rem;
+            line-height: .7rem;
+            letter-spacing: .75px;
+            margin: 2rem 0 0;
+        }
+        &__copyright {
+            padding-top: 1.5rem;
+            font-size: .85rem;
+        }
+    }
+}

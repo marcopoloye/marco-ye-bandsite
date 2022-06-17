@@ -1,5 +1,19 @@
 @use './partials/mixins' as *;
+@use './partials/global' as *;
 
+.header__list-item--bio {
+    border-bottom: white solid 0.25rem;
+    font-family: 'Avenir-Demi';
+}
+.header__list-link-shows {
+    color: #e1e1e1;
+}
+#header__list--shows:hover {
+    border-bottom: white solid 0.25rem;
+}
+#header__list--shows-link:hover{
+    color: white;
+}
 .hero {
     background: url("../assets/images/hero-bio.jpg");
     background-size: cover;
@@ -15,7 +29,7 @@
     }
     @include tablet {
         &__heading {
-            padding: 12rem 1rem;
+            padding: 12rem 2.25rem;
             font-size: 3.5rem;
         }
     }
@@ -59,17 +73,18 @@
         line-height: 1.15rem;
         font-size: .8rem;
         margin-right: .75rem;
+        margin-top: .8rem;
     }
     @include tablet {
         display: flex;
         flex-direction: column;
 
         &__image-box {
-            margin: 1.25rem 5.5rem .75rem;
+            margin: 1.25rem 4.5rem .75rem;
         }
         &__heading {
             font-size: 2rem;
-            padding: 2rem 0 0 2.25rem;
+            padding: 2rem 0 0 1.25rem;
         }
         &__image {
             width: 100%;
@@ -120,6 +135,190 @@
     }
 }
 
+.conversation {
+    margin: 0 1rem 1rem;
+    font: 1rem 'Avenir-Regular';
+
+    &__header {
+        font: 1.5rem 'Avenir-Demi';
+        color: #323232;
+        margin-bottom: 1rem;
+    }
+    &__form {
+        display: flex;
+        flex-direction: column;
+        width: 83%;
+        margin-left: 1rem;
+
+        &-box {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: flex-start;
+            padding-bottom: 1rem;
+            border-bottom: 1px #e1e1e1 solid;
+        }
+        &-name-heading, &-comment-heading {
+            font-size: 10px;
+            text-transform: uppercase;
+            padding-bottom: 4px;
+            color: #afafaf;
+        }
+        &-avatar-box {
+            margin-top: 1.15rem;
+            height: 2.25rem;
+            width: 2.25rem;
+            border-radius: 50%;
+            background: url('../assets/images/Mohan-muruge.jpg');
+            background-size: cover;
+        }
+        &-input-name {
+            padding: .75rem;
+            background: #fafafa;
+            border: 1px solid #e1e1e1;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+        &-input-comment {
+            padding: .75rem;
+            background: #fafafa;
+            border: 1px solid #e1e1e1;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            padding-bottom: 5rem;
+            max-width: 100%;
+        }
+        &-button {
+            text-transform: uppercase;
+            background: #323232;
+            color: white;
+            border-radius: 4px;
+            border: 0px;
+            padding: .75rem;
+            letter-spacing: .5px;
+            font-size: 1rem;
+        }
+    }
+
+    &__comment-card {
+        display: flex;
+        justify-content: flex-end;
+        border-bottom: 1px #e1e1e1 solid;
+        padding: 1rem 0;
+    }
+    &__comment-text {
+        font-size: .75rem;
+        line-height: 1rem;
+    }
+    &__comment-text-box {
+        width: 83%;
+        margin-left: 1rem;
+    }
+    &__comment-name-date {
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: .5rem;
+    }
+    &__comment-name {
+        font-size: .75rem;
+        font-family: "Avenir-Demi"
+    }
+    &__comment-date {
+        font-size: .75rem;
+        color: #afafaf;
+    }
+    &__comment-avatar-box {
+        height: 2.25rem;
+        width: 2.25rem;
+        border-radius: 50%;
+        background: #e1e1e1;
+        background-size: cover;
+    }
+    @include tablet {
+        margin: 0 6rem 0 2.25rem;
+
+        &__header {
+            font-size: 2.25rem;
+        }
+
+        &__form {
+            width: 89%;
+            &-box {
+                padding-bottom: 1.5rem;
+                margin-left: 3.75rem;
+            }
+            &-avatar-box {
+                height: 3rem;
+                width: 3rem;
+                margin-top: 1rem;
+            }
+            &-name-heading, &-comment-heading {
+                font-size: .7rem;
+            }
+            &-input-name {
+                padding: 1rem;
+                margin-bottom: 1.5rem;
+            }
+            &-input-comment {
+                padding: 1rem 1rem 5rem;
+                margin-bottom: 1.5rem;
+            }
+            &-button {
+                margin-left: 70%;
+            }
+        }
+        &__comment {
+            &-card {
+                margin-left: 3.75rem;
+            }
+            &-text-box {
+                width: 89%;
+            }
+            &-name, &-date {
+                font-size: .85rem;
+            }
+            &-text {
+                font-size: .85rem;
+                line-height: 1.5rem;
+            }
+            &-avatar-box {
+                height: 3rem;
+                width: 3rem;
+            }
+        }
+    }
+    @include desktop {
+        margin: 3rem 8rem 2rem;
+
+        &__form {
+            width: 89%;
+            margin-left: 1rem;
+            &-box {
+                justify-content: flex-start;
+                margin: 0 16.45rem;
+            }
+            &-button {
+                margin-left: 64%;
+            }
+        }
+        &__comment-card {
+            margin: 0 16.45rem;
+            padding: 1rem 0;
+        }
+        &__comment-box {
+            padding: 0;
+        }
+
+    }
+}
+
+::placeholder {
+    font-family: 'Avenir-Regular';
+    color: black;
+}
+
+
+
+
 .gallery {
     background: #fafafa;
     margin-bottom: .75rem;
@@ -138,30 +337,43 @@
     }
     @include tablet {
         margin-bottom: 0rem;
+        padding: 0 2.25rem;
         
         &__heading {
             font-size: 2.25rem;
-            padding: 3rem .75rem .35rem;
+            padding: 3rem .75rem 1.5rem 0;
         }
         &__image-box {
             display: flex;
             flex-wrap: wrap;
-            justify-content: center;
-            padding-bottom: 1.5rem;
+            justify-content: space-between;
+            padding-bottom: 1rem;
+            align-content: space-between;
         }
         &__image {
-            width: 30%;
-            padding: .25rem .75rem
+            width: 31%;
+            margin: 0;
+            padding-bottom: 1.5rem;
         }
     }
     @include desktop {
-        padding: 0 6.25rem .75rem;
+        padding: 0 8rem;
 
         &__heading {
             font-size: 2.25rem;
-            padding: 3rem 1.75rem .35rem;
+            padding: 3rem 0 .35rem;
+        }
+        &__image-box {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding-bottom: 1rem;
+            align-content: space-between;
+        }
+        &__image {
+            width: 32%;
+            margin: 0;
+            padding-bottom: 1.25rem;
         }
     }
  }
-
-

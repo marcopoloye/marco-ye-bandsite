@@ -1,12 +1,72 @@
-let showsSection = document.querySelector('.shows');
+const showsSection = document.querySelector('.shows');
 
-let showsInfo = [
-    {
-        date: "Mon Sept 06 2021",
-        venue: "Ronald Lane",
-        location: "San Francisco, CA",
-        option: 'Buy tickets'
-    },
+const showsSectionBox = document.createElement('div')
+showsSectionBox.classList.add('shows__section-box');
+showsSection.appendChild(showsSectionBox);
+
+// main heading
+let mainHeading = document.createElement('h2');
+mainHeading.innerText = ('Shows');
+mainHeading.classList.add('shows__heading');
+showsSectionBox.appendChild(mainHeading);
+
+const showsCardStack = document.createElement('div');
+showsCardStack.classList.add('shows__box');
+showsSectionBox.appendChild(showsCardStack);
+
+// top card
+let cardDivTop = document.createElement('div');
+cardDivTop.classList.add('shows__card-top')
+showsCardStack.appendChild(cardDivTop);
+
+let dateDivTop = document.createElement('div');
+dateDivTop.classList.add('shows__date-box-top');
+cardDivTop.appendChild(dateDivTop);
+
+let dateHeadingTop = document.createElement('h2');
+dateHeadingTop.innerText = ('Date');
+dateHeadingTop.classList.add('shows__date-heading-top');
+dateDivTop.appendChild(dateHeadingTop);
+
+let dateTop = document.createElement('p');
+dateTop.innerText = ('Mon Sept 06 2021');
+dateTop.classList.add('shows__date-top')
+dateDivTop.appendChild(dateTop);
+
+let venueDivTop = document.createElement('div');
+venueDivTop.classList.add('shows__venue-box-top')
+cardDivTop.appendChild(venueDivTop);
+
+let venueHeadingTop = document.createElement('h2');
+venueHeadingTop.innerText = ('Venue');
+venueHeadingTop.classList.add('shows__venue-heading-top')
+venueDivTop.appendChild(venueHeadingTop);
+
+let venueTop = document.createElement('p');
+venueTop.innerText = ('Ronald Lane');
+venueTop.classList.add('shows__venue-top')
+venueDivTop.appendChild(venueTop);
+
+let locationDivTop = document.createElement('div');
+locationDivTop.classList.add('shows__location-box-top')
+cardDivTop.appendChild(locationDivTop);
+
+let locationHeadingTop = document.createElement('h2');
+locationHeadingTop.innerText = ('Location');
+locationHeadingTop.classList.add('shows__location-heading-top')
+locationDivTop.appendChild(locationHeadingTop);
+
+let locationTop = document.createElement('p');
+locationTop.innerText = ('San Francisco, CA');
+locationTop.classList.add('shows__location-top')
+locationDivTop.appendChild(locationTop);
+
+let button = document.createElement('button');
+button.innerText = 'Buy tickets';
+button.classList.add('shows__button-top');
+cardDivTop.appendChild(button);
+
+const showsInfo = [
     {
         date: "Tue Sept 21 2021",
         venue: "Pier 3 East",
@@ -39,114 +99,72 @@ let showsInfo = [
     },
 ]
 
-let mainHeader = document.createElement('h2');
-mainHeader.innerText = ('Shows');
-mainHeader.classList.add('shows__heading');
-showsSection.appendChild(mainHeader);
 
-// create shows card
-for (let i = 0; i < showsInfo.length; i++) {
-    let showsCard = document.createElement('div');
+function createCard(show) {
+    //card
+    const showsCard = document.createElement('div');
     showsCard.classList.add('shows__card');
-    showsSection.appendChild(showsCard);
-}
+    showsCardStack.appendChild(showsCard);
 
-// create date heading and move into each card
-for (let i = 0; i < showsInfo.length; i++) {
-    let dateHeading = document.createElement('p');
+    //date box
+    const dateBox = document.createElement('div');
+    dateBox.classList.add('shows__date-box');
+    showsCard.appendChild(dateBox);
+
+    //date heading
+    const dateHeading = document.createElement('h2');
     dateHeading.innerText = 'Date';
     dateHeading.classList.add('shows__date-heading');
-    showsSection.appendChild(dateHeading);
-}
+    dateBox.appendChild(dateHeading);
 
-let targetShowsCard = document.querySelectorAll('.shows__card');
-let moveDateHeading = document.querySelectorAll('.shows__date-heading');
+    //date
+    const dateText = document.createElement('p');
+    dateText.innerText = show.date;
+    dateText.classList.add('shows__date');
+    dateBox.appendChild(dateText);
 
-for (let i = 0; i < targetShowsCard.length; i++) {
-    targetShowsCard[i].appendChild(moveDateHeading[i]);
-}
+    //venue box
+    const venueBox = document.createElement('div');
+    venueBox.classList.add('shows__venue-box');
+    showsCard.appendChild(venueBox);
 
-// create shows date and move into each card
-for (let i = 0; i < showsInfo.length; i++) {
-    let showsDate = document.createElement('p');
-    showsDate.innerText = showsInfo[i].date;
-    showsDate.classList.add('shows__date');
-    showsSection.appendChild(showsDate);
-}
-
-let moveShowsDate = document.querySelectorAll('.shows__date');
-
-for (let i = 0; i < targetShowsCard.length; i++) {
-    targetShowsCard[i].appendChild(moveShowsDate[i]);
-}
-
-// create venue heading and move into each card
-for (let i = 0; i < showsInfo.length; i++) {
-    let venueHeading = document.createElement('p');
+    //venue heading
+    const venueHeading = document.createElement('h2');
     venueHeading.innerText = 'Venue';
     venueHeading.classList.add('shows__venue-heading');
-    showsSection.appendChild(venueHeading);
-}
+    venueBox.appendChild(venueHeading);
 
-let moveVenueHeading = document.querySelectorAll('.shows__venue-heading');
+    //venue
+    const venueText = document.createElement('p');
+    venueText.innerText = show.venue;
+    venueText.classList.add('shows__venue');
+    venueBox.appendChild(venueText);
 
-for (let i = 0; i < targetShowsCard.length; i++) {
-    targetShowsCard[i].appendChild(moveVenueHeading[i]);
-}
+    //location box
+    const locationBox = document.createElement('div');
+    locationBox.classList.add('shows__location-box');
+    showsCard.appendChild(locationBox);
 
-// create shows venue and move into each card
-for (let i = 0; i < showsInfo.length; i++) {
-    let showsVenue = document.createElement('p');
-    showsVenue.innerText = showsInfo[i].venue;
-    showsVenue.classList.add('shows__venue');
-    showsSection.appendChild(showsVenue);
-}
-
-let moveShowsVenue = document.querySelectorAll('.shows__venue');
-
-for (let i = 0; i < targetShowsCard.length; i++) {
-    targetShowsCard[i].appendChild(moveShowsVenue[i]);
-}
-
-// create venue heading and move into each card
-for (let i = 0; i < showsInfo.length; i++) {
-    let locationHeading = document.createElement('p');
+    //location heading
+    const locationHeading = document.createElement('h2');
     locationHeading.innerText = 'Location';
     locationHeading.classList.add('shows__location-heading');
-    showsSection.appendChild(locationHeading);
-}
+    locationBox.appendChild(locationHeading);
 
-let moveLocationHeading = document.querySelectorAll('.shows__location-heading');
+    //location
+    const locationText = document.createElement('p');
+    locationText.innerText = show.location;
+    locationText.classList.add('shows__location');
+    locationBox.appendChild(locationText);
 
-for (let i = 0; i < targetShowsCard.length; i++) {
-    targetShowsCard[i].appendChild(moveLocationHeading[i]);
-}
-
-// create shows location and move into each card
-for (let i = 0; i < showsInfo.length; i++) {
-    let showsLocation = document.createElement('p');
-    showsLocation.innerText = showsInfo[i].location;
-    showsLocation.classList.add('shows__location');
-    showsSection.appendChild(showsLocation);
-}
-
-let moveShowsLocation = document.querySelectorAll('.shows__location');
-
-for (let i = 0; i < targetShowsCard.length; i++) {
-    targetShowsCard[i].appendChild(moveShowsLocation[i]);
-}
-
-// create buttons and move into each card
-for (let i = 0; i < showsInfo.length; i++) {
-    let button = document.createElement('button');
-    button.innerText = 'Buy tickets';
+    //button
+    const button = document.createElement('button');
     button.classList.add('shows__button');
-    showsSection.appendChild(button);
+    button.innerText = 'Buy tickets'
+    showsCard.appendChild(button)
 }
 
-let moveButton = document.querySelectorAll('.shows__button');
-
-for (let i = 0; i < targetShowsCard.length; i++) {
-    targetShowsCard[i].appendChild(moveButton[i]);
+for (let i = 0; i < showsInfo.length; i++) {
+    createCard(showsInfo[i]);
 }
 

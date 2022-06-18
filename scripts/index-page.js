@@ -1,9 +1,9 @@
 let commentSection = document.querySelector('.conversation');
 
-let mainHeader = document.createElement('h2');
-mainHeader.innerText = 'Join the Conversation';
-mainHeader.classList.add('conversation__header');
-commentSection.appendChild(mainHeader);
+let mainHeading = document.createElement('h2');
+mainHeading.innerText = 'Join the Conversation';
+mainHeading.classList.add('conversation__heading');
+commentSection.appendChild(mainHeading);
 
 let formBox = document.createElement('section');
 commentSection.appendChild(formBox);
@@ -73,97 +73,57 @@ let commenterList = [
     },
 ]
 
+
+function displayComment (listOfComments) {
 // create each comment card
-for (let i = 0; i < commenterList.length; i++) {
+
     let divCommentCard = document.createElement('div');
     divCommentBox.appendChild(divCommentCard);
     divCommentCard.classList.add('conversation__comment-card');
-}
-
 
 // create each avatar box and move inside each comment card
-for (let i = 0; i < commenterList.length; i++) {
+
     let divCommentAvatar = document.createElement('div');
-    divCommentBox.appendChild(divCommentAvatar);
+    divCommentCard.appendChild(divCommentAvatar);
     divCommentAvatar.classList.add('conversation__comment-avatar-box');
-}
-
-let moveCommentsAvatar = document.querySelectorAll('.conversation__comment-avatar-box');
-let targetCommentCard = document.querySelectorAll('.conversation__comment-card');
-
-for (let i = 0; i < targetCommentCard.length; i++) {
-    targetCommentCard[i].appendChild(moveCommentsAvatar[i]);
-}
-
 
 // create each text box and move inside each comment card
-for (let i = 0; i < commenterList.length; i++) {
+
     let divCommentText = document.createElement('div');
-    divCommentBox.appendChild(divCommentText);
+    divCommentCard.appendChild(divCommentText);
     divCommentText.classList.add('conversation__comment-text-box');
-}
-
-let moveCommentText = document.querySelectorAll('.conversation__comment-text-box');
-
-for (let i = 0; i < targetCommentCard.length; i++) {
-    targetCommentCard[i].appendChild(moveCommentText[i]);
-}
 
 
 // create each name-date box and move inside each text box
-for (let i = 0; i < commenterList.length; i++) {
+
     let divCommentNameDate = document.createElement('div');
-    divCommentBox.appendChild(divCommentNameDate);
+    divCommentText.appendChild(divCommentNameDate);
     divCommentNameDate.classList.add('conversation__comment-name-date');
-}
-
-let moveCommentNameDate = document.querySelectorAll('.conversation__comment-name-date');
-let targetCommentText = document.querySelectorAll('.conversation__comment-text-box');
-
-for (let i = 0; i < targetCommentText.length; i++) {
-    targetCommentText[i].appendChild(moveCommentNameDate[i]);
-}
-
 
 // create each commenter name and move inside each comment-name-date box
-for (let i = 0; i < commenterList.length; i++) {
+
     let commenterName = document.createElement('p');
-    commenterName.innerText = commenterList[i].name;
-    divCommentBox.appendChild(commenterName);
+    commenterName.innerText = listOfComments.name;
+    divCommentNameDate.appendChild(commenterName);
     commenterName.classList.add('conversation__comment-name');
-}
-let targetNameDateBox = document.querySelectorAll('.conversation__comment-name-date');
-let moveCommenterName = document.querySelectorAll('.conversation__comment-name');
-
-for (let i = 0; i < targetNameDateBox.length; i++) {
-    targetNameDateBox[i].appendChild(moveCommenterName[i]);
-}
-
 
 // create each comment date and move inside each comment-name-date box
-for (let i = 0; i < commenterList.length; i++) {
-    let commentDate = document.createElement('p');
-    commentDate.innerText = commenterList[i].date;
-    divCommentBox.appendChild(commentDate);
-    commentDate.classList.add('conversation__comment-date');
-}
-let moveCommentDate = document.querySelectorAll('.conversation__comment-date');
 
-for (let i = 0; i < targetNameDateBox.length; i++) {
-    targetNameDateBox[i].appendChild(moveCommentDate[i]);
-}
+    let commentDate = document.createElement('p');
+    commentDate.innerText = listOfComments.date;
+    divCommentNameDate.appendChild(commentDate);
+    commentDate.classList.add('conversation__comment-date')
 
 
 // create each comment and move inside each text box
-for (let i = 0; i < commenterList.length; i++) {
+
     let comment = document.createElement('p');
-    comment.innerText = commenterList[i].text;
-    divCommentBox.appendChild(comment);
+    comment.innerText = listOfComments.text;
+    divCommentText.appendChild(comment);
     comment.classList.add('conversation__comment-text');
-}
-let moveComment = document.querySelectorAll('.conversation__comment-text');
 
-for (let i = 0; i < targetCommentText.length; i++) {
-    targetCommentText[i].appendChild(moveComment[i]);
 }
 
+for (let i = 0; i < commenterList.length; i++) {
+    displayComment(commenterList[i]);
+}

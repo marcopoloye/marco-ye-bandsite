@@ -95,3 +95,72 @@
         }
     }
 }
+.shows {
+    margin: 0 0 1rem;
+    font: 1rem 'Avenir-Regular';
+    
+    &__heading {
+        font: 1.5rem 'Avenir-Demi';
+        color: #323232;
+        padding-left: 1rem;
+        margin-bottom: 0;
+    }
+    &__card, &__card-top {
+        padding: 1rem 1rem;
+        border-bottom: 1px #e1e1e1 solid;
+    }
+    &__date-heading, &__date-heading-top, &__venue-heading, &__venue-heading-top, &__location-heading, &__location-heading-top {
+        font-size: 10px;
+        text-transform: uppercase;
+        padding-bottom: .25rem;
+        color: #afafaf;
+        font-weight: 700;
+    }
+    &__venue, &__venue-top, &__location, &__location-top {
+        padding-bottom: .5rem;
+        font-size: .8rem;
+    }
+    &__date, &__date-top {
+        @extend .shows__venue;
+        font-family: "Avenir-Demi"
+    }
+    &__button, &__button-top {
+        background: #323232;
+        color: white;
+        font: .85rem "Avenir-Demi";
+        letter-spacing: 1px;
+        border: none;
+        border-radius: .25rem;
+        text-transform: uppercase;
+        padding: .75rem 0 .5rem;
+        width: 100%;
+    }
+    @include tablet {
+        &__card, &__card-top {
+            margin: 0 1rem;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        &__button, &__button-top {
+            max-width: 25% 
+        }
+    }
+    @include desktop {
+        &__box {
+            width: 75%;
+        }
+        &__section-box {
+            display: flex;
+            justify-content: space-between;
+        }
+        &__heading {
+            margin-left: 6rem;
+            margin-top: 3rem;
+            font-size: 2rem;
+        }
+        &__date-heading, &__venue-heading, &__location-heading {
+            display: none;
+        }
+    }
+}

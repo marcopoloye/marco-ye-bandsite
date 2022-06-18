@@ -367,4 +367,71 @@ p {
     width: 80%;
     height: 8rem;
   }
+}
+
+.shows {
+  margin: 0 0 1rem;
+  font: 1rem "Avenir-Regular";
+}
+.shows__heading {
+  font: 1.5rem "Avenir-Demi";
+  color: #323232;
+  padding-left: 1rem;
+  margin-bottom: 0;
+}
+.shows__card, .shows__card-top {
+  padding: 1rem 1rem;
+  border-bottom: 1px #e1e1e1 solid;
+}
+.shows__date-heading, .shows__date-heading-top, .shows__venue-heading, .shows__venue-heading-top, .shows__location-heading, .shows__location-heading-top {
+  font-size: 10px;
+  text-transform: uppercase;
+  padding-bottom: 0.25rem;
+  color: #afafaf;
+  font-weight: 700;
+}
+.shows__venue, .shows__date, .shows__date-top, .shows__venue-top, .shows__location, .shows__location-top {
+  padding-bottom: 0.5rem;
+  font-size: 0.8rem;
+}
+.shows__date, .shows__date-top {
+  font-family: "Avenir-Demi";
+}
+.shows__button, .shows__button-top {
+  background: #323232;
+  color: white;
+  font: 0.85rem "Avenir-Demi";
+  letter-spacing: 1px;
+  border: none;
+  border-radius: 0.25rem;
+  text-transform: uppercase;
+  padding: 0.75rem 0 0.5rem;
+  width: 100%;
+}
+@media (min-width: 768px) {
+  .shows__card, .shows__card-top {
+    margin: 0 1rem;
+    display: flex;
+    justify-content: space-between;
+  }
+  .shows__button, .shows__button-top {
+    max-width: 25%;
+  }
+}
+@media (min-width: 1280px) {
+  .shows__box {
+    width: 75%;
+  }
+  .shows__section-box {
+    display: flex;
+    justify-content: space-between;
+  }
+  .shows__heading {
+    margin-left: 6rem;
+    margin-top: 3rem;
+    font-size: 2rem;
+  }
+  .shows__date-heading, .shows__venue-heading, .shows__location-heading {
+    display: none;
+  }
 }/*# sourceMappingURL=shows.css.map */

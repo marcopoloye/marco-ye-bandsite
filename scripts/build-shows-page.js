@@ -112,9 +112,6 @@ const showsInfo = [
     },
 ]
 
-
-
-
 // creating show cards
 function createCard(show) {
     // card
@@ -185,6 +182,11 @@ for (let i = 0; i < showsInfo.length; i++) {
 }
 
 // highlighting shows on click
+
+const cardEl = document.querySelector('.shows__card-top')
+
+const cards = document.querySelectorAll('.shows__card')
+
 cardEl.addEventListener('click', (event) => {
     cardEl.setAttribute('style', 'background: #E1E1E1')
     cards[0].removeAttribute('style', 'background: #E1E1E1')

@@ -197,6 +197,9 @@
             letter-spacing: .5px;
             font-size: 1rem;
         }
+        &-button:hover {
+            background: black;
+        }
     }
 
     &__comment-card {

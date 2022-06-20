@@ -383,7 +383,10 @@ p {
   padding: 1rem 1rem;
   border-bottom: 1px #e1e1e1 solid;
 }
-.shows__date-heading, .shows__date-heading-top, .shows__venue-heading, .shows__venue-heading-top, .shows__location-heading, .shows__location-heading-top {
+.shows__date-top, .shows__date, .shows__venue-top, .shows__venue, .shows__location-top, .shows__location {
+  color: #323232;
+}
+.shows__date-heading-top, .shows__venue-heading-top, .shows__location-heading-top, .shows__date-heading, .shows__venue-heading, .shows__location-heading {
   font-size: 10px;
   text-transform: uppercase;
   padding-bottom: 0.25rem;
@@ -408,30 +411,90 @@ p {
   padding: 0.75rem 0 0.5rem;
   width: 100%;
 }
+.shows__button:hover, .shows__button-top:hover {
+  background: black;
+}
 @media (min-width: 768px) {
+  .shows {
+    margin: 0 0 2rem;
+  }
+  .shows__heading {
+    margin-left: 1rem;
+    margin-top: 2.5rem;
+    font-size: 2.25rem;
+  }
   .shows__card, .shows__card-top {
-    margin: 0 1rem;
+    margin: 0 1.25rem;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+  }
+  .shows__date, .shows__venue, .shows__date-top, .shows__location {
+    padding-bottom: 0;
+  }
+  .shows__date-heading-top, .shows__venue-heading-top, .shows__location-heading-top {
+    padding-bottom: 1.5rem;
+  }
+  .shows__date-heading, .shows__venue-heading, .shows__location-heading {
+    display: none;
+  }
+  .shows__venue-box, .shows__venue-top {
+    width: 6.5rem;
+  }
+  .shows__date-box, .shows__date-box-top {
+    width: 8rem;
   }
   .shows__button, .shows__button-top {
-    max-width: 25%;
+    max-width: 21%;
+    height: 100%;
+    padding: 0.9rem 0 0.7rem;
+    font-family: "avenir-regular";
+  }
+  .shows__button-top {
+    margin-top: 2rem;
   }
 }
 @media (min-width: 1280px) {
+  .shows {
+    margin-bottom: 2.5rem;
+  }
   .shows__box {
-    width: 75%;
+    width: 65%;
+    margin-right: 6rem;
+    margin-top: 2.75rem;
   }
   .shows__section-box {
     display: flex;
     justify-content: space-between;
   }
   .shows__heading {
-    margin-left: 6rem;
+    margin-left: 7rem;
     margin-top: 3rem;
-    font-size: 2rem;
+    margin-right: 7.5rem;
+    font-size: 2.25rem;
   }
   .shows__date-heading, .shows__venue-heading, .shows__location-heading {
     display: none;
   }
+  .shows__date-heading-top, .shows__venue-heading-top, .shows__location-heading-top {
+    margin-bottom: 3rem;
+  }
+  .shows__date-box, .shows__date-box-top {
+    width: 11em;
+  }
+  .shows__button, .shows__button-top {
+    max-width: 18%;
+    height: 100%;
+    padding: 0.9rem 0 0.7rem;
+    font-family: "avenir-regular";
+  }
+  .shows__button-top {
+    margin-top: 3.25rem;
+  }
+  .shows__venue-box, .shows__venue-top {
+    width: 5.5rem;
+  }
+}
+.shows__card:hover, .shows__card-top:hover {
+  background: #fafafa;
 }/*# sourceMappingURL=shows.css.map */

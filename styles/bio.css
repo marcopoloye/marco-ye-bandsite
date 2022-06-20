@@ -470,6 +470,9 @@ p {
   letter-spacing: 0.5px;
   font-size: 1rem;
 }
+.conversation__form-button:hover {
+  background: black;
+}
 .conversation__comment-card {
   display: flex;
   justify-content: flex-end;

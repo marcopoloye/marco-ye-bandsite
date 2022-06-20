@@ -24,7 +24,7 @@ mainForm.appendChild(nameLabel);
 
 let nameInput = document.createElement('input');
 nameInput.setAttribute('type', 'text');
-nameInput.setAttribute('name', 'full-name');
+nameInput.setAttribute('name', 'fullname');
 nameInput.setAttribute('placeholder', 'Enter your name');
 nameInput.classList.add('conversation__form-input-name');
 mainForm.appendChild(nameInput);
@@ -35,9 +35,8 @@ commentLabel.classList.add('conversation__form-comment-heading');
 mainForm.appendChild(commentLabel);
 
 let commentInput = document.createElement('input');
-commentInput.setAttribute('type', 'textarea');
+commentInput.setAttribute('type', 'text');
 commentInput.setAttribute('name', 'comment');
-commentInput.setAttribute('wrap', 'hard');
 commentInput.setAttribute('placeholder', 'Add a new comment');
 commentInput.setAttribute('rows', '6')
 commentInput.setAttribute('cols', '10')
@@ -46,7 +45,6 @@ mainForm.appendChild(commentInput);
 
 let submitButton = document.createElement('button');
 submitButton.setAttribute('type', 'submit');
-submitButton.setAttribute('value', 'submit');
 submitButton.innerText = "Comment"
 submitButton.classList.add('conversation__form-button');
 mainForm.appendChild(submitButton);
@@ -54,6 +52,7 @@ mainForm.appendChild(submitButton);
 let divCommentBox = document.createElement('section');
 commentSection.appendChild(divCommentBox);
 divCommentBox.classList.add('conversation__comment-box');
+
 
 let commenterList = [
     {
@@ -74,56 +73,108 @@ let commenterList = [
 ]
 
 
-function displayComment (listOfComments) {
-// create each comment card
+function createComments (listOfComments) {
 
+// create each comment card
     let divCommentCard = document.createElement('div');
     divCommentBox.appendChild(divCommentCard);
     divCommentCard.classList.add('conversation__comment-card');
 
-// create each avatar box and move inside each comment card
-
+// create each avatar box
     let divCommentAvatar = document.createElement('div');
     divCommentCard.appendChild(divCommentAvatar);
     divCommentAvatar.classList.add('conversation__comment-avatar-box');
 
-// create each text box and move inside each comment card
-
+// create each text box
     let divCommentText = document.createElement('div');
     divCommentCard.appendChild(divCommentText);
     divCommentText.classList.add('conversation__comment-text-box');
 
 
-// create each name-date box and move inside each text box
-
+// create each name-date box
     let divCommentNameDate = document.createElement('div');
     divCommentText.appendChild(divCommentNameDate);
     divCommentNameDate.classList.add('conversation__comment-name-date');
 
-// create each commenter name and move inside each comment-name-date box
-
+// create each commenter name
     let commenterName = document.createElement('p');
     commenterName.innerText = listOfComments.name;
     divCommentNameDate.appendChild(commenterName);
     commenterName.classList.add('conversation__comment-name');
 
-// create each comment date and move inside each comment-name-date box
-
+// create each comment date
     let commentDate = document.createElement('p');
     commentDate.innerText = listOfComments.date;
     divCommentNameDate.appendChild(commentDate);
     commentDate.classList.add('conversation__comment-date')
 
-
-// create each comment and move inside each text box
-
+// create each comment
     let comment = document.createElement('p');
     comment.innerText = listOfComments.text;
     divCommentText.appendChild(comment);
     comment.classList.add('conversation__comment-text');
-
 }
 
 for (let i = 0; i < commenterList.length; i++) {
-    displayComment(commenterList[i]);
+    createComments(commenterList[i]);
 }
+
+//form function 
+const formEl = document.querySelector('.conversation__form').addEventListener("submit", displayComment);
+
+const today = new Date ();
+const todaysDate = (today.getMonth()+1) + '/' + today.getDate() + '/' + today.getFullYear();
+
+function displayComment (event) {
+    event.preventDefault();
+
+    const commentersName = event.target.fullname.value;
+    const theComment = event.target.comment.value;
+
+    event.target.reset();
+    
+// create each comment card
+    let divCommentCard = document.createElement('div');
+    divCommentBox.appendChild(divCommentCard);
+    divCommentCard.classList.add('conversation__comment-card');
+
+// create each avatar box
+    let divCommentAvatar = document.createElement('div');
+    divCommentCard.appendChild(divCommentAvatar);
+    divCommentAvatar.classList.add('conversation__comment-avatar-box');
+
+// create each text box
+    let divCommentText = document.createElement('div');
+    divCommentCard.appendChild(divCommentText);
+    divCommentText.classList.add('conversation__comment-text-box');
+
+// create each name-date box
+    let divCommentNameDate = document.createElement('div');
+    divCommentText.appendChild(divCommentNameDate);
+    divCommentNameDate.classList.add('conversation__comment-name-date');
+
+// create each commenter name
+    let commenterName = document.createElement('p');
+    commenterName.innerText = commentersName;
+    divCommentNameDate.appendChild(commenterName);
+    commenterName.classList.add('conversation__comment-name');
+
+// create each comment date
+    let commentDate = document.createElement('p');
+    commentDate.innerText = todaysDate;
+    divCommentNameDate.appendChild(commentDate);
+    commentDate.classList.add('conversation__comment-date')
+
+// create each comment
+    let comment = document.createElement('p');
+    comment.innerText = theComment;
+    divCommentText.appendChild(comment);
+    comment.classList.add('conversation__comment-text');
+
+
+    let newComment = {name: commentersName, date: todaysDate, text: theComment};
+    let newCommentList = []
+
+    commenterList.unshift(newComment)
+    console.log(commenterList)
+};

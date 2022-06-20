@@ -1,17 +1,17 @@
 @use './partials/mixins' as *;
 @use './partials/global' as *;
 
-.header__list-item--bio {
+.header__list-item-bio {
     border-bottom: white solid 0.25rem;
     font-family: 'Avenir-Demi';
 }
 .header__list-link-shows {
     color: #e1e1e1;
 }
-#header__list--shows:hover {
+#header__list-shows:hover {
     border-bottom: white solid 0.25rem;
 }
-#header__list--shows-link:hover{
+#header__list-shows-link:hover{
     color: white;
 }
 .hero {
@@ -68,7 +68,7 @@
         font: 0.85rem 'Avenir-Regular';
         margin-bottom: 0.2rem;
     }
-    &__text--one, &__text--two {
+    &__text-one, &__text-two {
         @extend .about__subheading;
         line-height: 1.15rem;
         font-size: .8rem;
@@ -103,12 +103,12 @@
         &__text-box {
             display: flex;
         }
-        &__text--one{
+        &__text-one {
             font: .85rem 'Avenir-Regular';
             line-height: 1.4rem;
             margin-right: 1.75rem;
         }
-        &__text--two {
+        &__text-two {
             font: .85rem 'Avenir-Regular';
             line-height: 1.4rem;
             margin-right: 0;
@@ -313,14 +313,6 @@
 
     }
 }
-
-::placeholder {
-    font-family: 'Avenir-Regular';
-    color: black;
-}
-
-
-
 
 .gallery {
     background: #fafafa;

@@ -1,17 +1,17 @@
 @use './partials/mixins' as *;
 @use './partials/global' as *;
 
-.header__list-item--shows {
+.header__list-item-shows {
     border-bottom: white solid 0.25rem;
     font-family: 'Avenir-Demi';
 }
 .header__list-link-bio {
     color: #e1e1e1;
 }
-#header__list--bio:hover {
+#header__list-bio:hover {
     border-bottom: white solid 0.25rem;
 }
-#header__list--bio-link:hover{
+#header__list-bio-link:hover{
     color: white;
 }
 .hero {
@@ -107,7 +107,6 @@
     &__card, &__card-top {
         padding: 1rem 1rem;
         border-bottom: 1px #e1e1e1 solid;
-
     }
     &__date-top, &__date, &__venue-top, &__venue, &__location-top, &__location {
         color: #323232;
@@ -143,9 +142,9 @@
     }
     @include tablet {
         margin: 0 0 2rem;
+
         &__heading {
-            margin-left: 1rem;
-            margin-top: 2.5rem;
+            margin: 2.5rem 0 0 1rem;
             font-size: 2.25rem;
         }
         &__card, &__card-top {
@@ -181,19 +180,17 @@
     }
     @include desktop {
         margin-bottom: 2.5rem;
+        
         &__box {
             width: 65%;
-            margin-right: 6rem;
-            margin-top: 2.75rem;
+            margin: 2.75rem 6rem 0 0;
         }
         &__section-box {
             display: flex;
             justify-content: space-between;
         }
         &__heading {
-            margin-left: 7rem;
-            margin-top: 3rem;
-            margin-right: 7.5rem;
+            margin: 3rem 7.5rem 0 7rem;
             font-size: 2.25rem;
         }
         &__date-heading, &__venue-heading, &__location-heading {
@@ -218,9 +215,7 @@
             width: 5.5rem;
         }
     }
-
     &__card:hover, &__card-top:hover {
         background: #fafafa;
     }
-
 }

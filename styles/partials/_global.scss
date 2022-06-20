@@ -54,7 +54,7 @@ p {
         margin: 0.45rem 0 0;
         text-align: center;
 
-        &-item--bio {
+        &-item-bio {
             min-width: 50%;
             padding-bottom: .75rem;
         }
@@ -63,7 +63,7 @@ p {
             color: white;
             padding: 0 30% 1rem;
         }
-        &-item--shows {
+        &-item-shows {
             font-weight: 100;
             min-width: 50%;
             padding-bottom: .75rem;
@@ -88,12 +88,12 @@ p {
             margin: 1.5rem 4rem 1.25rem 2.25rem;
             width: 55%;
         }
-        &__list-item--bio {
+        &__list-item-bio {
             padding: 1.5rem 0;
             margin-right: 3.5rem;
             min-width: 38%;
         }
-        &__list-item--shows {
+        &__list-item-shows {
             padding: 1.5rem 0;
             min-width: 25%;
         }
@@ -117,13 +117,13 @@ p {
         &__logo {
             margin: 2rem 4rem 2rem 8rem;
         }
-        &__list-item--bio {
+        &__list-item-bio {
             padding-bottom: .75rem;
             padding-top: 2rem;
             margin-right: 3rem;
             min-width: 38%;
         }
-        &__list-item--shows {
+        &__list-item-shows {
             padding-bottom: .75rem;
             padding-top: 2rem;
             min-width: 25%;
@@ -150,16 +150,16 @@ p {
         justify-content: space-between;
         width: 40%;
     }
-    &__subtext--name {
+    &__subtext-name {
         font: 800 .77rem 'Avenir-Regular';
         line-height: .6rem;
         margin: 1.75rem 0 0;
     }
-    &__subtext--location, &__subtext--contact  {
-        @extend .footer__subtext--name;
+    &__subtext-location, &__subtext-contact  {
+        @extend .footer__subtext-name;
         font-weight: 100;
     }
-    &__text-box--one, &__text-box--two {
+    &__text-box-one, &__text-box-two {
         margin: 0 0 2.25rem;
     }
     &__logo-box {
@@ -180,7 +180,7 @@ p {
         padding-top: 6.25rem;
         margin: .7rem 0;
     }
-    &__icon--instagram, &__icon--facebook, &__icon--twitter {
+    &__icon-instagram, &__icon-facebook, &__icon-twitter {
         width: 115%;
     }
 
@@ -215,17 +215,16 @@ p {
         &__text-box {
             display: flex;
             justify-content: space-between;
-
         }
-        &__text-box--one, &__text-box--two {
+        &__text-box-one, &__text-box-two {
             margin: 0 3.25rem 1rem 0;
         }
-        &__subtext--name {
+        &__subtext-name {
             font-size: .88rem;
             line-height: .7rem;
             margin: 1.75rem 0 0;
         }
-        &__subtext--location, &__subtext--contact  {
+        &__subtext-location, &__subtext-contact  {
             font-size: .88rem;
             line-height: .7rem;
             margin: 2.25rem 0 0;
@@ -261,19 +260,19 @@ p {
         &__text-box {
             justify-content: space-between;
         }
-        &__text-box--one, &__text-box--two {
+        &__text-box-one, &__text-box-two {
             margin: 0 0rem 1rem 0;
         }
-        &__text-box--three {
+        &__text-box-three {
             margin-right: 17rem;
         }
-        &__subtext--name {
+        &__subtext-name {
             font-size: .8rem;
             line-height: .7rem;
             letter-spacing: .75px;
             margin: 1.5rem 0 0;
         }
-        &__subtext--location, &__subtext--contact  {
+        &__subtext-location, &__subtext-contact  {
             font-size: .8rem;
             line-height: .7rem;
             letter-spacing: .75px;

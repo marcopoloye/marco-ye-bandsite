@@ -155,3 +155,10 @@ function displayComment (event) {
 
     event.target.reset();
 }
+
+let key = axios.get('https://project-1-api.herokuapp.com/register');
+
+key.then(result => {
+    
+})
+

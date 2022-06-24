@@ -64,7 +64,7 @@
     @include desktop {
         &__overlay {
             display: flex;
-            padding: 12.5rem 6.5rem 14rem;
+            padding: 12.5rem 6.5rem 14rem 8rem;
         }
         &__text-box {
             width: 50%;
@@ -84,7 +84,7 @@
             display: flex;
             align-items: center;
             justify-content: flex-end;
-            margin: 2.5rem 4rem 0 0;
+            margin: 2.5rem 1.5rem 0 0;
             padding: 0;
             width: 50%;
         }
@@ -104,10 +104,17 @@
         padding-left: 1rem;
         margin-bottom: 0;
     }
-    &__card, &__card-top {
+    &__card {
         padding: 1rem 1rem;
         border-bottom: 1px #e1e1e1 solid;
     }
+    &__card:hover {
+        background: #fafafa;
+    }
+    &__card--selected {
+        background: green;
+    }
+
     &__date-top, &__date, &__venue-top, &__venue, &__location-top, &__location {
         color: #323232;
     }
@@ -126,7 +133,7 @@
         @extend .shows__venue;
         font-family: "Avenir-Demi"
     }
-    &__button, &__button-top {
+    &__button {
         background: #323232;
         color: white;
         font: .85rem "Avenir-Demi";
@@ -136,10 +143,15 @@
         text-transform: uppercase;
         padding: .75rem 0 .5rem;
         width: 100%;
+        cursor: pointer;
     }
-    &__button:hover, &__button-top:hover {
+    &__categories-box {
+        display: none;
+    }
+    &__button:hover {
         background: black;
     }
+
     @include tablet {
         margin: 0 0 2rem;
 
@@ -147,7 +159,7 @@
             margin: 2.5rem 0 0 1rem;
             font-size: 2.25rem;
         }
-        &__card, &__card-top {
+        &__card {
             margin: 0 1.25rem;
             display: flex;
             justify-content: space-between;
@@ -156,8 +168,17 @@
         &__date, &__venue, &__location {
             padding-bottom: 0;
         }
-        &__date-heading-top, &__venue-heading-top, &__location-heading-top {
-            padding-bottom: 1.5rem;
+        &__date-heading-top {
+            padding-top: 1.5rem;
+            width: 30%;
+        }
+        &__venue-heading-top {
+            padding-top: 1.5rem;
+            width: 25%
+        }
+        &__location-heading-top{
+            padding-top: 1.5rem;
+            width: 15%;
         }
         &__date-heading, &__venue-heading, &__location-heading {
             display: none;
@@ -177,17 +198,25 @@
         &__button-top {
             margin-top: 2rem;
         }
+        &__categories-box {
+            display: flex;
+            justify-content: space-between;
+            margin: 0 0 0 2.25rem;
+            margin-right: 37.5%;
+        }
     }
+
     @include desktop {
         margin-bottom: 2.5rem;
         
         &__box {
-            width: 65%;
-            margin: 2.75rem 6rem 0 0;
+            margin: 1rem 7rem 0 23.5rem;
+
         }
         &__section-box {
             display: flex;
             justify-content: space-between;
+            flex-direction: column;
         }
         &__heading {
             margin: 3rem 7.5rem 0 7rem;
@@ -196,8 +225,11 @@
         &__date-heading, &__venue-heading, &__location-heading {
             display: none;
         }
-        &__date-heading-top, &__venue-heading-top, &__location-heading-top {
-            margin-bottom: 3rem;
+        &__date-heading-top {
+            width: 59%;
+        }
+        &__venue-heading-top {
+            width: 41%;
         }
         &__date-box, &__date-box-top {
             width: 11em;
@@ -212,10 +244,15 @@
             margin-top: 3.25rem;
         }
         &__venue-box, &__venue-top {
-            width: 5.5rem;
+            width: 6rem;
         }
-    }
-    &__card:hover, &__card-top:hover {
-        background: #fafafa;
+        &__categories-box {
+            margin-right: 30%;
+            margin-left: 24.5rem;
+        }
+        &__card {
+            margin: 0;
+            padding-bottom: 1rem;
+        }
     }
 }

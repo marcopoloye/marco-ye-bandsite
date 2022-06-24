@@ -339,7 +339,7 @@ p {
 @media screen and (min-width: 1280px) {
   .hero__overlay {
     display: flex;
-    padding: 12.5rem 6.5rem 14rem;
+    padding: 12.5rem 6.5rem 14rem 8rem;
   }
   .hero__text-box {
     width: 50%;
@@ -359,7 +359,7 @@ p {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    margin: 2.5rem 4rem 0 0;
+    margin: 2.5rem 1.5rem 0 0;
     padding: 0;
     width: 50%;
   }
@@ -379,9 +379,15 @@ p {
   padding-left: 1rem;
   margin-bottom: 0;
 }
-.shows__card, .shows__card-top {
+.shows__card {
   padding: 1rem 1rem;
   border-bottom: 1px #e1e1e1 solid;
+}
+.shows__card:hover {
+  background: #fafafa;
+}
+.shows__card--selected {
+  background: green;
 }
 .shows__date-top, .shows__date, .shows__venue-top, .shows__venue, .shows__location-top, .shows__location {
   color: #323232;
@@ -400,7 +406,7 @@ p {
 .shows__date, .shows__date-top {
   font-family: "Avenir-Demi";
 }
-.shows__button, .shows__button-top {
+.shows__button {
   background: #323232;
   color: white;
   font: 0.85rem "Avenir-Demi";
@@ -410,8 +416,12 @@ p {
   text-transform: uppercase;
   padding: 0.75rem 0 0.5rem;
   width: 100%;
+  cursor: pointer;
 }
-.shows__button:hover, .shows__button-top:hover {
+.shows__categories-box {
+  display: none;
+}
+.shows__button:hover {
   background: black;
 }
 @media screen and (min-width: 768px) {
@@ -422,7 +432,7 @@ p {
     margin: 2.5rem 0 0 1rem;
     font-size: 2.25rem;
   }
-  .shows__card, .shows__card-top {
+  .shows__card {
     margin: 0 1.25rem;
     display: flex;
     justify-content: space-between;
@@ -431,8 +441,17 @@ p {
   .shows__date, .shows__venue, .shows__date-top, .shows__location {
     padding-bottom: 0;
   }
-  .shows__date-heading-top, .shows__venue-heading-top, .shows__location-heading-top {
-    padding-bottom: 1.5rem;
+  .shows__date-heading-top {
+    padding-top: 1.5rem;
+    width: 30%;
+  }
+  .shows__venue-heading-top {
+    padding-top: 1.5rem;
+    width: 25%;
+  }
+  .shows__location-heading-top {
+    padding-top: 1.5rem;
+    width: 15%;
   }
   .shows__date-heading, .shows__venue-heading, .shows__location-heading {
     display: none;
@@ -452,18 +471,24 @@ p {
   .shows__button-top {
     margin-top: 2rem;
   }
+  .shows__categories-box {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 0 0 2.25rem;
+    margin-right: 37.5%;
+  }
 }
 @media screen and (min-width: 1280px) {
   .shows {
     margin-bottom: 2.5rem;
   }
   .shows__box {
-    width: 65%;
-    margin: 2.75rem 6rem 0 0;
+    margin: 1rem 7rem 0 23.5rem;
   }
   .shows__section-box {
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
   }
   .shows__heading {
     margin: 3rem 7.5rem 0 7rem;
@@ -472,8 +497,11 @@ p {
   .shows__date-heading, .shows__venue-heading, .shows__location-heading {
     display: none;
   }
-  .shows__date-heading-top, .shows__venue-heading-top, .shows__location-heading-top {
-    margin-bottom: 3rem;
+  .shows__date-heading-top {
+    width: 59%;
+  }
+  .shows__venue-heading-top {
+    width: 41%;
   }
   .shows__date-box, .shows__date-box-top {
     width: 11em;
@@ -488,9 +516,14 @@ p {
     margin-top: 3.25rem;
   }
   .shows__venue-box, .shows__venue-top {
-    width: 5.5rem;
+    width: 6rem;
   }
-}
-.shows__card:hover, .shows__card-top:hover {
-  background: #fafafa;
+  .shows__categories-box {
+    margin-right: 30%;
+    margin-left: 24.5rem;
+  }
+  .shows__card {
+    margin: 0;
+    padding-bottom: 1rem;
+  }
 }/*# sourceMappingURL=shows.css.map */

@@ -12,74 +12,75 @@ mainHeading.innerText = ('Shows');
 mainHeading.classList.add('shows__heading');
 showsSectionBox.appendChild(mainHeading);
 
+let topSubHeading = document.createElement('div');
+topSubHeading.classList.add('shows__categories-box');
+showsSectionBox.appendChild(topSubHeading);
+
+
 // showsInfo object section
 const showsCardStack = document.createElement('div');
 showsCardStack.classList.add('shows__box');
 showsSectionBox.appendChild(showsCardStack);
 
-// top card
-let cardDivTop = document.createElement('div');
-cardDivTop.classList.add('shows__card-top');
-showsCardStack.appendChild(cardDivTop);
+// // top card
+// let cardDivTop = document.createElement('div');
+// cardDivTop.classList.add('shows__card-top');
+// showsCardStack.appendChild(cardDivTop);
 
-// date heading and text box
-let dateDivTop = document.createElement('div');
-dateDivTop.classList.add('shows__date-box-top');
-cardDivTop.appendChild(dateDivTop);
 
 // date heading
 let dateHeadingTop = document.createElement('h2');
 dateHeadingTop.innerText = ('Date');
 dateHeadingTop.classList.add('shows__date-heading-top');
-dateDivTop.appendChild(dateHeadingTop);
+topSubHeading.appendChild(dateHeadingTop);
 
-// date text 
-let dateTop = document.createElement('p');
-dateTop.innerText = ('Mon Sept 06 2021');
-dateTop.classList.add('shows__date-top');
-dateDivTop.appendChild(dateTop);
+// // date text 
+// let dateTop = document.createElement('p');
+// dateTop.classList.add('shows__date-top');
+// dateDivTop.appendChild(dateTop);
 
-// venue box
-let venueDivTop = document.createElement('div');
-venueDivTop.classList.add('shows__venue-box-top');
-cardDivTop.appendChild(venueDivTop);
+// // venue box
+// let venueDivTop = document.createElement('div');
+// venueDivTop.classList.add('shows__venue-box-top');
+// topSubHeading.appendChild(venueDivTop);
 
 // venue heading
 let venueHeadingTop = document.createElement('h2');
 venueHeadingTop.innerText = ('Venue');
 venueHeadingTop.classList.add('shows__venue-heading-top');
-venueDivTop.appendChild(venueHeadingTop);
+topSubHeading.appendChild(venueHeadingTop);
 
-// venue text
-let venueTop = document.createElement('p');
-venueTop.innerText = ('Ronald Lane');
-venueTop.classList.add('shows__venue-top');
-venueDivTop.appendChild(venueTop);
+// // venue text
+// let venueTop = document.createElement('p');
+// venueTop.classList.add('shows__venue-top');
+// venueDivTop.appendChild(venueTop);
 
-// location box
-let locationDivTop = document.createElement('div');
-locationDivTop.classList.add('shows__location-box-top');
-cardDivTop.appendChild(locationDivTop);
+
 
 // location heading
 let locationHeadingTop = document.createElement('h2');
 locationHeadingTop.innerText = ('Location');
 locationHeadingTop.classList.add('shows__location-heading-top');
-locationDivTop.appendChild(locationHeadingTop);
+topSubHeading.appendChild(locationHeadingTop);
 
-// location text
-let locationTop = document.createElement('p');
-locationTop.innerText = ('San Francisco, CA');
-locationTop.classList.add('shows__location-top');
-locationDivTop.appendChild(locationTop);
+// // location text
+// let locationTop = document.createElement('p');
+// locationTop.classList.add('shows__location-top');
+// locationDivTop.appendChild(locationTop);
 
-// button
-let button = document.createElement('button');
-button.innerText = 'Buy tickets';
-button.classList.add('shows__button-top');
-cardDivTop.appendChild(button);
+// // button
+// let button = document.createElement('button');
+// button.innerText = 'Buy tickets';
+// button.classList.add('shows__button-top');
+// cardDivTop.appendChild(button);
 
 const showsInfo = [
+    {
+        date: "Mon Sept 06 2021",
+        venue: "Ronald Lane",
+        location: "San Francisco, CA",
+        option: 'Buy tickets'
+    },
     {
         date: "Tue Sept 21 2021",
         venue: "Pier 3 East",
@@ -182,61 +183,15 @@ for (let i = 0; i < showsInfo.length; i++) {
 }
 
 // highlighting shows on click
-
-const cardEl = document.querySelector('.shows__card-top')
-
 const cards = document.querySelectorAll('.shows__card')
 
-cardEl.addEventListener('click', (event) => {
-    cardEl.setAttribute('style', 'background: #E1E1E1')
-    cards[0].removeAttribute('style', 'background: #E1E1E1')
-    cards[1].removeAttribute('style', 'background: #E1E1E1')
-    cards[2].removeAttribute('style', 'background: #E1E1E1')
-    cards[3].removeAttribute('style', 'background: #E1E1E1')
-    cards[4].removeAttribute('style', 'background: #E1E1E1')
+cards.forEach((eachCard) => {
+    eachCard.addEventListener('click', () => {
+        cards.forEach((eachCard) => {
+            eachCard.classList.remove('shows__card--selected')
+        })
+        eachCard.classList.add('shows__card--selected')
+    })
 })
 
-cards[0].addEventListener('click', (event) => {
-    cards[0].setAttribute('style', 'background: #E1E1E1');
-    cardEl.removeAttribute('style', 'background: #E1E1E1');
-    cards[1].removeAttribute('style', 'background: #E1E1E1');
-    cards[2].removeAttribute('style', 'background: #E1E1E1');
-    cards[3].removeAttribute('style', 'background: #E1E1E1');
-    cards[4].removeAttribute('style', 'background: #E1E1E1');
-})
-
-cards[1].addEventListener('click', (event) => {
-    cards[1].setAttribute('style', 'background: #E1E1E1');
-    cardEl.removeAttribute('style', 'background: #E1E1E1')
-    cards[0].removeAttribute('style', 'background: #E1E1E1')
-    cards[2].removeAttribute('style', 'background: #E1E1E1')
-    cards[3].removeAttribute('style', 'background: #E1E1E1')
-    cards[4].removeAttribute('style', 'background: #E1E1E1')
-})
-
-cards[2].addEventListener('click', (event) => {
-    cards[2].setAttribute('style', 'background: #E1E1E1');
-    cardEl.removeAttribute('style', 'background: #E1E1E1')
-    cards[1].removeAttribute('style', 'background: #E1E1E1')
-    cards[0].removeAttribute('style', 'background: #E1E1E1')
-    cards[3].removeAttribute('style', 'background: #E1E1E1')
-    cards[4].removeAttribute('style', 'background: #E1E1E1')
-})
-
-cards[3].addEventListener('click', (event) => {
-    cards[3].setAttribute('style', 'background: #E1E1E1');
-    cardEl.removeAttribute('style', 'background: #E1E1E1')
-    cards[1].removeAttribute('style', 'background: #E1E1E1')
-    cards[2].removeAttribute('style', 'background: #E1E1E1')
-    cards[0].removeAttribute('style', 'background: #E1E1E1')
-    cards[4].removeAttribute('style', 'background: #E1E1E1')
-})
-
-cards[4].addEventListener('click', (event) => {
-    cards[4].setAttribute('style', 'background: #E1E1E1');
-    cardEl.removeAttribute('style', 'background: #E1E1E1')
-    cards[1].removeAttribute('style', 'background: #E1E1E1')
-    cards[2].removeAttribute('style', 'background: #E1E1E1')
-    cards[3].removeAttribute('style', 'background: #E1E1E1')
-    cards[0].removeAttribute('style', 'background: #E1E1E1')
-})
+console.log(cards)

@@ -65,168 +65,91 @@ commentSection.appendChild(divCommentBox);
 divCommentBox.classList.add('conversation__comment-box');
 
 
-let commenterList = [
-    {
-        name: 'Connor Walton',
-        date: '02/17/2021', 
-        text: 'This is art. This is inexplicable magic expressed in the purest way, everything that makes up this majestic work deserves reverence. Let us appreciate this for what it is and what it contains.'
-    },
-    {
-        name: 'Emilie Beach',
-        date: '01/09/2021', 
-        text: 'I feel blessed to have seen them in person. What a show! They were just perfection. If there was one day of my life I could relive, this would be it. What an incredible day'
-    },
-    {
-        name: 'Miles Acosta',
-        date: '12/20/2020', 
-        text: "I can't stop listening. Every time I hear one of their songs - the vocals - it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can't get enough."
-    },
-]
-
-
-// // adding list of comments function
-// function createComments (listOfComments) {
-
-// // comment card
-//     let divCommentCard = document.createElement('div');
-//     divCommentBox.appendChild(divCommentCard);
-//     divCommentCard.classList.add('conversation__comment-card');
-
-// // avatar box
-//     let divCommentAvatar = document.createElement('div');
-//     divCommentCard.appendChild(divCommentAvatar);
-//     divCommentAvatar.classList.add('conversation__comment-avatar-box');
-
-// // text box
-//     let divCommentText = document.createElement('div');
-//     divCommentCard.appendChild(divCommentText);
-//     divCommentText.classList.add('conversation__comment-text-box');
-
-// // name and date box
-//     let divCommentNameDate = document.createElement('div');
-//     divCommentText.appendChild(divCommentNameDate);
-//     divCommentNameDate.classList.add('conversation__comment-name-date');
-
-// // commenter name
-//     let commenterName = document.createElement('p');
-//     commenterName.innerText = listOfComments.name;
-//     divCommentNameDate.appendChild(commenterName);
-//     commenterName.classList.add('conversation__comment-name');
-
-// // comment and date box
-//     let commentDate = document.createElement('p');
-//     commentDate.innerText = listOfComments.date;
-//     divCommentNameDate.appendChild(commentDate);
-//     commentDate.classList.add('conversation__comment-date')
-
-// // comment
-//     let comment = document.createElement('p');
-//     comment.innerText = listOfComments.text;
-//     divCommentText.appendChild(comment);
-//     comment.classList.add('conversation__comment-text');
-// }
-
-// for (let i = 0; i < commenterList.length; i++) {
-//     createComments(commenterList[i]);
-// }
-
-
-// add new comments function 
-// const formEl = document.querySelector('.conversation__form').addEventListener("submit", displayComment);
-
-// const today = new Date ();
-// const todaysDate = (today.getMonth()+1) + '/' + today.getDate() + '/' + today.getFullYear();
-
-// function displayComment (event) {
-//     event.preventDefault();
-
-//     let newComment = {};
-//     newComment.name = event.target.fullname.value;
-//     newComment.text = event.target.comment.value;
-//     newComment.date = todaysDate;
-
-//     commenterList.unshift(newComment);
-//     // console.log(commenterList);
-
-//     divCommentBox.innerHTML = '';
-//     for (let i = 0; i < commenterList.length; i++) {
-//         createComments(commenterList[i]);
-//     }
-
-//     event.target.reset();
-// }
-
 let key = axios.get('https://project-1-api.herokuapp.com/register');
 
-let apiComments = axios.get('https://project-1-api.herokuapp.com/comments?api_key=f16b1e8d-038e-4e73-a9ca-78936f6ffec5');
-apiComments.then (result => {
-    console.log(result.data)
-
-const today = new Date ();
-const todaysDate = (today.getMonth()+1) + '/' + today.getDate() + '/' + today.getFullYear();
-
-    // adding list of comments function
-function createComments (listOfComments) {
-
-    // comment card
-        let divCommentCard = document.createElement('div');
-        divCommentBox.appendChild(divCommentCard);
-        divCommentCard.classList.add('conversation__comment-card');
+axios.get('https://project-1-api.herokuapp.com/comments?api_key=f16b1e8d-038e-4e73-a9ca-78936f6ffec5')
     
-    // avatar box
-        let divCommentAvatar = document.createElement('div');
-        divCommentCard.appendChild(divCommentAvatar);
-        divCommentAvatar.classList.add('conversation__comment-avatar-box');
-    
-    // text box
-        let divCommentText = document.createElement('div');
-        divCommentCard.appendChild(divCommentText);
-        divCommentText.classList.add('conversation__comment-text-box');
-    
-    // name and date box
-        let divCommentNameDate = document.createElement('div');
-        divCommentText.appendChild(divCommentNameDate);
-        divCommentNameDate.classList.add('conversation__comment-name-date');
-    
-    // commenter name
-        let commenterName = document.createElement('p');
-        commenterName.innerText = listOfComments.name;
-        divCommentNameDate.appendChild(commenterName);
-        commenterName.classList.add('conversation__comment-name');
-    
-    // comment and date box
-        let commentDate = document.createElement('p');
-        commentDate.innerText = listOfComments.timestamp;
-        divCommentNameDate.appendChild(commentDate);
-        commentDate.classList.add('conversation__comment-date')
-    
-    // comment
-        let comment = document.createElement('p');
-        comment.innerText = listOfComments.comment;
-        divCommentText.appendChild(comment);
-        comment.classList.add('conversation__comment-text');
-    }
-    
+    .then (result => {
+        console.log(result.data)
 
+        // adding list of comments function
+        function createComments (listOfComments) {
 
-    for (let i = 0; i < result.data.length; i++) {
-        createComments(result.data[i]);
-    }
-
-    // const formEl = document.querySelector('.conversation__form').addEventListener("submit", newDisplayComment);
-
-    // const today = new Date ();
-    // const todaysDate = (today.getMonth()+1) + '/' + today.getDate() + '/' + today.getFullYear();
-
-    // function newDisplayComment (event) {
-    //     event.preventDefault();
-
-    //     let newNewComment = {};
-    //     newNewComment.name = event.target.fullname.value;
-    //     newNewComment.text = event.target.comment.value;
-    //     newNewComment.date = todaysDate;
+        // comment card
+            let divCommentCard = document.createElement('div');
+            divCommentBox.appendChild(divCommentCard);
+            divCommentCard.classList.add('conversation__comment-card');
         
-    //     result.data.unshift(newNewComment);
-    //     console.log(result.data.unshift(newNewComment))
-    // }
-})
+        // avatar box
+            let divCommentAvatar = document.createElement('div');
+            divCommentCard.appendChild(divCommentAvatar);
+            divCommentAvatar.classList.add('conversation__comment-avatar-box');
+        
+        // text box
+            let divCommentText = document.createElement('div');
+            divCommentCard.appendChild(divCommentText);
+            divCommentText.classList.add('conversation__comment-text-box');
+        
+        // name and date box
+            let divCommentNameDate = document.createElement('div');
+            divCommentText.appendChild(divCommentNameDate);
+            divCommentNameDate.classList.add('conversation__comment-name-date');
+        
+        // commenter name
+            let commenterName = document.createElement('p');
+            commenterName.innerText = listOfComments.name;
+            divCommentNameDate.appendChild(commenterName);
+            commenterName.classList.add('conversation__comment-name');
+        
+        // comment and date box
+            let commentDate = document.createElement('p');
+            commentDate.innerText = listOfComments.timestamp;
+            divCommentNameDate.appendChild(commentDate);
+            commentDate.classList.add('conversation__comment-date')
+        
+        // comment
+            let comment = document.createElement('p');
+            comment.innerText = listOfComments.comment;
+            divCommentText.appendChild(comment);
+            comment.classList.add('conversation__comment-text');
+        }
+        
+
+        for (let i = 0; i < result.data.length; i++) {
+
+            const betterDate = new Date(result.data[i].timestamp);
+            const bestDate = (betterDate.getMonth()+1) + '/' + betterDate.getDate() + '/' + betterDate.getFullYear();
+            Object.assign(result.data[i], {timestamp: bestDate});
+
+            createComments(result.data[i]);
+        }
+
+
+
+        const formEl = document.querySelector('.conversation__form').addEventListener("submit", newDisplayComment);
+
+        const today = new Date ();
+        const todaysDate = (today.getMonth()+1) + '/' + today.getDate() + '/' + today.getFullYear();
+
+        function newDisplayComment (event) {
+            event.preventDefault();
+
+            let newNewComment = {};
+            newNewComment.name = event.target.fullname.value;
+            newNewComment.comment = event.target.comment.value;
+            newNewComment.timestamp = todaysDate;
+            
+            result.data.unshift(newNewComment);
+
+            divCommentBox.innerHTML = ' ';
+            for (let i = 0; i < result.data.length; i++) {
+                createComments(result.data[i]);
+            }
+
+            event.target.reset();
+
+            axios.post('https://project-1-api.herokuapp.com/comments?api_key=f16b1e8d-038e-4e73-a9ca-78936f6ffec5', newComment)
+           
+        }
+    })
+

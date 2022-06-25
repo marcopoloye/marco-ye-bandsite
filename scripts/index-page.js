@@ -65,93 +65,90 @@ commentSection.appendChild(divCommentBox);
 divCommentBox.classList.add('conversation__comment-box');
 
 
-let key = axios.get('https://project-1-api.herokuapp.com/register');
 
-axios.get('https://project-1-api.herokuapp.com/comments?api_key=7beb00c7-fac5-4e32-b141-0b1b410d510b')
+
+axios.get('https://project-1-api.herokuapp.com/register').then(result => {
+    let key = result.data
+    console.log(key)
+})
+
+function createComments (aComment) {
+    // comment card
+    let divCommentCard = document.createElement('div');
+    divCommentBox.appendChild(divCommentCard);
+    divCommentCard.classList.add('conversation__comment-card');
+
+    // avatar box
+    let divCommentAvatar = document.createElement('div');
+    divCommentCard.appendChild(divCommentAvatar);
+    divCommentAvatar.classList.add('conversation__comment-avatar-box');
+
+    // text box
+    let divCommentText = document.createElement('div');
+    divCommentCard.appendChild(divCommentText);
+    divCommentText.classList.add('conversation__comment-text-box');
+
+    // name and date box
+    let divCommentNameDate = document.createElement('div');
+    divCommentText.appendChild(divCommentNameDate);
+    divCommentNameDate.classList.add('conversation__comment-name-date');
+
+    // commenter name
+    let commenterName = document.createElement('p');
+    commenterName.innerText = aComment.name;
+    divCommentNameDate.appendChild(commenterName);
+    commenterName.classList.add('conversation__comment-name');
+
+    // comment and date box
+    let commentDate = document.createElement('p');
+    commentDate.innerText = aComment.timestamp;
+    divCommentNameDate.appendChild(commentDate);
+    commentDate.classList.add('conversation__comment-date')
+
+    // comment
+    let comment = document.createElement('p');
+    comment.innerText = aComment.comment;
+    divCommentText.appendChild(comment);
+    comment.classList.add('conversation__comment-text');
+}
+  
+function appendComments () {
+    axios.get('https://project-1-api.herokuapp.com/comments?api_key=e61d801b-5b84-4347-94d1-0245a9ccfe58')
     .then (result => {
-        let commentData = result.data;
-
-        function createComments (aComment) {
-            // comment card
-            let divCommentCard = document.createElement('div');
-            divCommentBox.appendChild(divCommentCard);
-            divCommentCard.classList.add('conversation__comment-card');
-        
-            // avatar box
-            let divCommentAvatar = document.createElement('div');
-            divCommentCard.appendChild(divCommentAvatar);
-            divCommentAvatar.classList.add('conversation__comment-avatar-box');
-        
-            // text box
-            let divCommentText = document.createElement('div');
-            divCommentCard.appendChild(divCommentText);
-            divCommentText.classList.add('conversation__comment-text-box');
-        
-            // name and date box
-            let divCommentNameDate = document.createElement('div');
-            divCommentText.appendChild(divCommentNameDate);
-            divCommentNameDate.classList.add('conversation__comment-name-date');
-        
-            // commenter name
-            let commenterName = document.createElement('p');
-            commenterName.innerText = aComment.name;
-            divCommentNameDate.appendChild(commenterName);
-            commenterName.classList.add('conversation__comment-name');
-        
-            // comment and date box
-            let commentDate = document.createElement('p');
-            commentDate.innerText = aComment.timestamp;
-            divCommentNameDate.appendChild(commentDate);
-            commentDate.classList.add('conversation__comment-date')
-        
-            // comment
-            let comment = document.createElement('p');
-            comment.innerText = aComment.comment;
-            divCommentText.appendChild(comment);
-            comment.classList.add('conversation__comment-text');
-        }
+        let commentData = result.data; 
+        commentData.sort((a, b) => b.timestamp - a.timestamp);
 
         for (let i = 0; i < commentData.length; i++) {
-
             const betterDate = new Date(commentData[i].timestamp);
             const bestDate = (betterDate.getMonth()+1) + '/' + betterDate.getDate() + '/' + betterDate.getFullYear();
             Object.assign(commentData[i], {timestamp: bestDate});
-
-            createComments(commentData[i]);
-        };
-
-        const form = document.querySelector('.conversation__form').addEventListener("submit", newDisplayComment);
         
-        function newDisplayComment (event) {
-            event.preventDefault();
-            const today = new Date ();
-            const todaysDate = (today.getMonth()+1) + '/' + today.getDate() + '/' + today.getFullYear();
-
-            const newComment = {
-                name: event.target.fullname.value,
-                comment: event.target.comment.value,
-            };
-
-            commentData.unshift(newComment);
-
-            divCommentBox.innerHTML = '';
-            for (let i = 0; i < commentData.length; i++) {
-                createComments(commentData[i]);
-            };
-            console.log(commentData)
-            
-            event.target.reset();
-
-            axios.post('https://project-1-api.herokuapp.com/comments?api_key=7beb00c7-fac5-4e32-b141-0b1b410d510b', newComment)
-                .then((response) => {
-                    const addedComment = response.data;
-                    commentData.unshift(addedComment);
-
-                })
-
-        };
-        console.log(commentData)
+            createComments(commentData[i]);
+        }; 
     })
+}
 
+const form = document.querySelector('.conversation__form')
+form.addEventListener("submit", newDisplayComment);
+function newDisplayComment (event) {
+    event.preventDefault();
 
+    const today = new Date ();
+    const todaysDate = (today.getMonth()+1) + '/' + today.getDate() + '/' + today.getFullYear();
+
+    const newComment = {
+        name: event.target.fullname.value,
+        comment: event.target.comment.value,
+    };
+    
+    event.target.reset();
+    
+    axios.post('https://project-1-api.herokuapp.com/comments?api_key=e61d801b-5b84-4347-94d1-0245a9ccfe58', newComment)
+        .then (result => {
+            axios.get('https://project-1-api.herokuapp.com/comments?api_key=e61d801b-5b84-4347-94d1-0245a9ccfe58')
+            .then (result => {
+                appendComments();
+            })
+        })
+}; 
 

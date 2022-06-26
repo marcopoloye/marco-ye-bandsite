@@ -67,6 +67,7 @@ divCommentBox.classList.add('conversation__comment-box');
 
 let key = 'c531a8e2-90d3-45d2-9e25-7ba6564da145'
 
+//sort and display content
 axios.get(`https://project-1-api.herokuapp.com/comments?api_key=${key}`)
     .then(result => {
         let commentData = result.data; 
@@ -75,6 +76,7 @@ axios.get(`https://project-1-api.herokuapp.com/comments?api_key=${key}`)
         appendComment();
     });
 
+//creating comments
 function createComments (aComment) {
     // comment card
     let divCommentCard = document.createElement('div');
@@ -115,6 +117,7 @@ function createComments (aComment) {
     comment.classList.add('conversation__comment-text');
 };
 
+//appending comments
 function appendComment () {
     axios.get(`https://project-1-api.herokuapp.com/comments?api_key=${key}`)
     .then (result => {
@@ -133,6 +136,7 @@ function appendComment () {
     })
 };
 
+//submits comments and appends
 const form = document.querySelector('.conversation__form');
 form.addEventListener("submit", appendNewComment);
 function appendNewComment (event) {

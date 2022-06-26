@@ -293,7 +293,6 @@ p {
 .hero {
   background: url("../assets/images/hero-bio.jpg");
   background-size: cover;
-  background-repeat: no-repeat;
 }
 .hero__overlay {
   background: rgba(50, 50, 50, 0.5);
@@ -346,8 +345,7 @@ p {
 .about__text-one, .about__text-two {
   line-height: 1.15rem;
   font-size: 0.8rem;
-  margin-right: 0.75rem;
-  margin-top: 0.8rem;
+  margin: 0.8rem 0.75rem 0.2rem 0;
 }
 @media screen and (min-width: 768px) {
   .about {
@@ -452,12 +450,11 @@ p {
   margin-bottom: 1rem;
 }
 .conversation__form-input-comment {
-  padding: 0.75rem;
+  padding: 0.75rem 0.75rem 5rem 0.75rem;
   background: #fafafa;
   border: 1px solid #e1e1e1;
   border-radius: 4px;
   margin-bottom: 1rem;
-  padding-bottom: 5rem;
   max-width: 100%;
 }
 .conversation__form-button {
@@ -546,7 +543,7 @@ p {
   .conversation__comment-text-box {
     width: 89%;
   }
-  .conversation__comment-name, .conversation__comment-date {
+  .conversation__comment-name, .conversation-date {
     font-size: 0.85rem;
   }
   .conversation__comment-text {

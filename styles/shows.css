@@ -294,7 +294,6 @@ p {
   font: 0.75rem "Avenir-Regular";
   background: url("../assets/images/hero-shows.jpg");
   background-size: cover;
-  background-repeat: no-repeat;
 }
 .hero__overlay {
   background: rgba(50, 50, 50, 0.5);
@@ -387,7 +386,7 @@ p {
   background: #fafafa;
 }
 .shows__card--selected {
-  background: green;
+  background: #e1e1e1;
 }
 .shows__date-top, .shows__date, .shows__venue-top, .shows__venue, .shows__location-top, .shows__location {
   color: #323232;

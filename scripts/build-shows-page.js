@@ -16,17 +16,10 @@ let topSubHeading = document.createElement('div');
 topSubHeading.classList.add('shows__categories-box');
 showsSectionBox.appendChild(topSubHeading);
 
-
 // showsInfo object section
 const showsCardStack = document.createElement('div');
 showsCardStack.classList.add('shows__box');
 showsSectionBox.appendChild(showsCardStack);
-
-// // top card
-// let cardDivTop = document.createElement('div');
-// cardDivTop.classList.add('shows__card-top');
-// showsCardStack.appendChild(cardDivTop);
-
 
 // date heading
 let dateHeadingTop = document.createElement('h2');
@@ -34,28 +27,11 @@ dateHeadingTop.innerText = ('Date');
 dateHeadingTop.classList.add('shows__date-heading-top');
 topSubHeading.appendChild(dateHeadingTop);
 
-// // date text 
-// let dateTop = document.createElement('p');
-// dateTop.classList.add('shows__date-top');
-// dateDivTop.appendChild(dateTop);
-
-// // venue box
-// let venueDivTop = document.createElement('div');
-// venueDivTop.classList.add('shows__venue-box-top');
-// topSubHeading.appendChild(venueDivTop);
-
 // venue heading
 let venueHeadingTop = document.createElement('h2');
 venueHeadingTop.innerText = ('Venue');
 venueHeadingTop.classList.add('shows__venue-heading-top');
 topSubHeading.appendChild(venueHeadingTop);
-
-// // venue text
-// let venueTop = document.createElement('p');
-// venueTop.classList.add('shows__venue-top');
-// venueDivTop.appendChild(venueTop);
-
-
 
 // location heading
 let locationHeadingTop = document.createElement('h2');
@@ -63,58 +39,37 @@ locationHeadingTop.innerText = ('Location');
 locationHeadingTop.classList.add('shows__location-heading-top');
 topSubHeading.appendChild(locationHeadingTop);
 
-// // location text
-// let locationTop = document.createElement('p');
-// locationTop.classList.add('shows__location-top');
-// locationDivTop.appendChild(locationTop);
 
-// // button
-// let button = document.createElement('button');
-// button.innerText = 'Buy tickets';
-// button.classList.add('shows__button-top');
-// cardDivTop.appendChild(button);
+let key = 'c531a8e2-90d3-45d2-9e25-7ba6564da145'
 
-const showsInfo = [
-    {
-        date: "Mon Sept 06 2021",
-        venue: "Ronald Lane",
-        location: "San Francisco, CA",
-        option: 'Buy tickets'
-    },
-    {
-        date: "Tue Sept 21 2021",
-        venue: "Pier 3 East",
-        location: "San Francisco, CA",
-        option: 'Buy tickets'
-    },
-    {
-        date: "Fri Oct 15 2021",
-        venue: "View Lounge",
-        location: "San Francisco, CA",
-        option: 'Buy tickets'
-    },
-    {
-        date: "Sat Nov 06 2021",
-        venue: "Hyatt Agency",
-        location: "San Francisco, CA",
-        option: 'Buy tickets'
-    },
-    {
-        date: "Fri Nov 26 2021",
-        venue: "Moscow Center",
-        location: "San Francisco, CA",
-        option: 'Buy tickets'
-    },
-    {
-        date: "Wed Dec 15 2021",
-        venue: "Press Club",
-        location: "San Francisco, CA",
-        option: 'Buy tickets'
-    },
-]
+axios.get(`https://project-1-api.herokuapp.com/showdates?api_key=${key}`)
+    .then(result => {
+        let showDates = result.data;
+        //display shows
+        for (let i = 0; i < showDates.length; i++) {
+            
+            let betterDate = (showDates[i].date) * 1
+            Object.assign(showDates[i], {date: betterDate});
+            let bestDate = new Date(showDates[i].date);
+            Object.assign(showDates[i], {date: bestDate.toDateString()});
+    
+            createCard(showDates[i]);
+        }
+        // highlighting shows on click
+        const cards = document.querySelectorAll('.shows__card')
 
-// creating show cards
-function createCard(show) {
+        cards.forEach((eachCard) => {
+            eachCard.addEventListener('click', () => {
+                cards.forEach((eachCard) => {
+                    eachCard.classList.remove('shows__card--selected')
+                })
+                eachCard.classList.add('shows__card--selected')
+            })
+        })
+})
+
+ // creating show cards
+ function createCard(show) {
     // card
     const cardDiv = document.createElement('div');
     cardDiv.classList.add('shows__card');
@@ -150,7 +105,7 @@ function createCard(show) {
 
     // venue text
     const venueText = document.createElement('p');
-    venueText.innerText = show.venue;
+    venueText.innerText = show.place;
     venueText.classList.add('shows__venue');
     venueBox.appendChild(venueText);
 
@@ -176,22 +131,4 @@ function createCard(show) {
     button.classList.add('shows__button');
     button.innerText = 'Buy tickets'
     cardDiv.appendChild(button);
-}
-
-for (let i = 0; i < showsInfo.length; i++) {
-    createCard(showsInfo[i]);
-}
-
-// highlighting shows on click
-const cards = document.querySelectorAll('.shows__card')
-
-cards.forEach((eachCard) => {
-    eachCard.addEventListener('click', () => {
-        cards.forEach((eachCard) => {
-            eachCard.classList.remove('shows__card--selected')
-        })
-        eachCard.classList.add('shows__card--selected')
-    })
-})
-
-console.log(cards)
+    }

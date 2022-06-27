@@ -3,27 +3,19 @@
 @font-face {
     font-family: 'Avenir-Regular';
     src: url("../../assets/fonts/AvenirNextLTPro-Regular.otf");
-    font-weight: normal;
-    font-style: normal;
+    font-weight: 400;
 }
 
 @font-face {
     font-family: 'Avenir-Demi';
     src: url("../../assets/fonts/AvenirNextLTPro-Demi.otf");
-    font-weight: normal;
-    font-style: normal;
+    font-weight: 600;
 }
 
-@font-face {
-    font-family: 'Avenir-Bold';
-    src: url("../../assets/fonts/AvenirNextLTPro-Bold.otf");
-    font-weight: normal;
-    font-style: normal;
-}
 
 body {
     margin: 0;
-    font: 100 1rem 'Avenir-Regular';
+    font: 1rem 'Avenir-Regular';
 }
 
 p {
@@ -54,21 +46,11 @@ p {
         margin: 0.45rem 0 0;
         text-align: center;
 
-        &-item-bio {
+        &-item-bio, &-item-shows {
             min-width: 50%;
             padding-bottom: .75rem;
         }
-        &-link-bio {
-            text-decoration: none;
-            color: white;
-            padding: 0 30% 1rem;
-        }
-        &-item-shows {
-            font-weight: 100;
-            min-width: 50%;
-            padding-bottom: .75rem;
-        }
-        &-link-shows {
+        &-link-bio, &-link-shows {
             text-decoration: none;
             color: white;
             padding: 0 30% 1rem;
@@ -88,14 +70,12 @@ p {
             margin: 1.5rem 4rem 1.25rem 2.25rem;
             width: 55%;
         }
-        &__list-item-bio {
-            padding: 1.5rem 0;
-            margin-right: 3.5rem;
-            min-width: 38%;
-        }
-        &__list-item-shows {
+        &__list-item-shows, &__list-item-bio {
             padding: 1.5rem 0;
             min-width: 25%;
+        }
+        &__list-item-bio {
+            margin-right: 3.5rem;
         }
         &__list-link-bio {
             text-decoration: none;
@@ -118,14 +98,12 @@ p {
             margin: 2rem 4rem 2rem 8rem;
         }
         &__list-item-bio {
-            padding-bottom: .75rem;
-            padding-top: 2rem;
+            padding: 2rem 0 .75rem;
             margin-right: 3rem;
             min-width: 38%;
         }
         &__list-item-shows {
-            padding-bottom: .75rem;
-            padding-top: 2rem;
+            padding: 2rem 0 .75rem;
             min-width: 25%;
         }
     }
@@ -133,13 +111,12 @@ p {
 
 
 .footer {
-    font: 100 1rem 'Avenir-Regular';
     background: #323232;
     padding: 0.5rem 1rem;
     color: white;
 
     &__heading {
-        font: 1.5rem 'avenir-demi';
+        font: 1.5rem 'Avenir-Demi';
         margin-bottom: 1rem;
     }
     &__heading-box {
@@ -151,13 +128,21 @@ p {
         width: 40%;
     }
     &__subtext-name {
-        font: 800 .77rem 'Avenir-Regular';
+        font-weight: 700;
+        font-size: .75rem;
         line-height: .6rem;
         margin: 1.75rem 0 0;
     }
-    &__subtext-location, &__subtext-contact  {
+    &__subtext-company, &__subtext-location {
         @extend .footer__subtext-name;
-        font-weight: 100;
+        margin: .625rem 0 0;
+    }
+    &__subtext-address, &__subtext-contact  {
+        @extend .footer__subtext-name;
+        font-weight: 400;
+    }
+    &__subtext-location {
+        font-weight: 400;
     }
     &__text-box-one, &__text-box-two {
         margin: 0 0 2.25rem;
@@ -167,12 +152,8 @@ p {
         transform: translateY(470px)
     }
     &__logo {
-        text-align: left;
         margin: 3.25rem 0 0;
-        color: white;
         text-transform: uppercase;
-        font-size: 1.5rem;
-        font-weight: 100;
         padding-top: 1rem;
     }
     &__copyright {
@@ -194,7 +175,7 @@ p {
             max-width: 95vw;
         }
         &__heading {
-            font-size: 2.15rem;
+            font-size: 2.25rem;
         }
         &__logo {
             margin: 0;
@@ -206,8 +187,7 @@ p {
         }
         &__icon-box {
             max-width: 7.4rem;
-            padding-right: 11rem;
-            padding-left: .25rem;
+            padding: 0 11rem 0 .25rem;
         }
         &__icon-link {
             padding-top: .6rem;
@@ -219,19 +199,20 @@ p {
         &__text-box-one, &__text-box-two {
             margin: 0 3.25rem 1rem 0;
         }
-        &__subtext-name {
-            font-size: .88rem;
+        &__subtext-name, &__subtext-company, &__subtext-location, &__subtext-address, &__subtext-contact {
+            font-size: .875rem;
             line-height: .7rem;
             margin: 1.75rem 0 0;
         }
-        &__subtext-location, &__subtext-contact  {
-            font-size: .88rem;
-            line-height: .7rem;
+        &__subtext-company, &__subtext-location {
+            margin: .625rem 0 0;
+        }
+        &__subtext-address, &__subtext-contact {
             margin: 2.25rem 0 0;
         }
         &__copyright {
             padding-top: 2rem;
-            font-size: .85rem;
+            font-size: .875rem;
         }
     }
     @include desktop {
@@ -266,21 +247,21 @@ p {
         &__text-box-three {
             margin-right: 17rem;
         }
-        &__subtext-name {
-            font-size: .8rem;
+        &__subtext-name, &__subtext-address, &__subtext-contact, &__subtext-location, &__subtext-company {
+            font-size: .8125rem;
             line-height: .7rem;
             letter-spacing: .75px;
             margin: 1.5rem 0 0;
         }
-        &__subtext-location, &__subtext-contact  {
-            font-size: .8rem;
-            line-height: .7rem;
-            letter-spacing: .75px;
+        &__subtext-address, &__subtext-contact {
             margin: 2rem 0 0;
+        }
+        &__subtext-location, &__subtext-company {
+            margin: .625rem 0 0,
         }
         &__copyright {
             padding-top: 1.5rem;
-            font-size: .85rem;
+            font-size: .875rem;
         }
     }
 }

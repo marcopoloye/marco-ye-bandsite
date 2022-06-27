@@ -1,24 +1,16 @@
 @font-face {
   font-family: "Avenir-Regular";
   src: url("../../assets/fonts/AvenirNextLTPro-Regular.otf");
-  font-weight: normal;
-  font-style: normal;
+  font-weight: 400;
 }
 @font-face {
   font-family: "Avenir-Demi";
   src: url("../../assets/fonts/AvenirNextLTPro-Demi.otf");
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Avenir-Bold";
-  src: url("../../assets/fonts/AvenirNextLTPro-Bold.otf");
-  font-weight: normal;
-  font-style: normal;
+  font-weight: 600;
 }
 body {
   margin: 0;
-  font: 100 1rem "Avenir-Regular";
+  font: 1rem "Avenir-Regular";
 }
 
 p {
@@ -48,21 +40,11 @@ p {
   margin: 0.45rem 0 0;
   text-align: center;
 }
-.header__list-item-bio {
+.header__list-item-bio, .header__list-item-shows {
   min-width: 50%;
   padding-bottom: 0.75rem;
 }
-.header__list-link-bio {
-  text-decoration: none;
-  color: white;
-  padding: 0 30% 1rem;
-}
-.header__list-item-shows {
-  font-weight: 100;
-  min-width: 50%;
-  padding-bottom: 0.75rem;
-}
-.header__list-link-shows {
+.header__list-link-bio, .header__list-link-shows {
   text-decoration: none;
   color: white;
   padding: 0 30% 1rem;
@@ -81,14 +63,12 @@ p {
     margin: 1.5rem 4rem 1.25rem 2.25rem;
     width: 55%;
   }
-  .header__list-item-bio {
-    padding: 1.5rem 0;
-    margin-right: 3.5rem;
-    min-width: 38%;
-  }
-  .header__list-item-shows {
+  .header__list-item-shows, .header__list-item-bio {
     padding: 1.5rem 0;
     min-width: 25%;
+  }
+  .header__list-item-bio {
+    margin-right: 3.5rem;
   }
   .header__list-link-bio {
     text-decoration: none;
@@ -109,26 +89,23 @@ p {
     margin: 2rem 4rem 2rem 8rem;
   }
   .header__list-item-bio {
-    padding-bottom: 0.75rem;
-    padding-top: 2rem;
+    padding: 2rem 0 0.75rem;
     margin-right: 3rem;
     min-width: 38%;
   }
   .header__list-item-shows {
-    padding-bottom: 0.75rem;
-    padding-top: 2rem;
+    padding: 2rem 0 0.75rem;
     min-width: 25%;
   }
 }
 
 .footer {
-  font: 100 1rem "Avenir-Regular";
   background: #323232;
   padding: 0.5rem 1rem;
   color: white;
 }
 .footer__heading {
-  font: 1.5rem "avenir-demi";
+  font: 1.5rem "Avenir-Demi";
   margin-bottom: 1rem;
 }
 .footer__heading-box {
@@ -139,13 +116,20 @@ p {
   justify-content: space-between;
   width: 40%;
 }
-.footer__subtext-name, .footer__subtext-location, .footer__subtext-contact {
-  font: 800 0.77rem "Avenir-Regular";
+.footer__subtext-name, .footer__subtext-address, .footer__subtext-contact, .footer__subtext-company, .footer__subtext-location {
+  font-weight: 700;
+  font-size: 0.75rem;
   line-height: 0.6rem;
   margin: 1.75rem 0 0;
 }
-.footer__subtext-location, .footer__subtext-contact {
-  font-weight: 100;
+.footer__subtext-company, .footer__subtext-location {
+  margin: 0.625rem 0 0;
+}
+.footer__subtext-address, .footer__subtext-contact {
+  font-weight: 400;
+}
+.footer__subtext-location {
+  font-weight: 400;
 }
 .footer__text-box-one, .footer__text-box-two {
   margin: 0 0 2.25rem;
@@ -155,12 +139,8 @@ p {
   transform: translateY(470px);
 }
 .footer__logo {
-  text-align: left;
   margin: 3.25rem 0 0;
-  color: white;
   text-transform: uppercase;
-  font-size: 1.5rem;
-  font-weight: 100;
   padding-top: 1rem;
 }
 .footer__copyright {
@@ -182,7 +162,7 @@ p {
     max-width: 95vw;
   }
   .footer__heading {
-    font-size: 2.15rem;
+    font-size: 2.25rem;
   }
   .footer__logo {
     margin: 0;
@@ -194,8 +174,7 @@ p {
   }
   .footer__icon-box {
     max-width: 7.4rem;
-    padding-right: 11rem;
-    padding-left: 0.25rem;
+    padding: 0 11rem 0 0.25rem;
   }
   .footer__icon-link {
     padding-top: 0.6rem;
@@ -207,19 +186,20 @@ p {
   .footer__text-box-one, .footer__text-box-two {
     margin: 0 3.25rem 1rem 0;
   }
-  .footer__subtext-name, .footer__subtext-location, .footer__subtext-contact {
-    font-size: 0.88rem;
+  .footer__subtext-name, .footer__subtext-company, .footer__subtext-location, .footer__subtext-address, .footer__subtext-contact {
+    font-size: 0.875rem;
     line-height: 0.7rem;
     margin: 1.75rem 0 0;
   }
-  .footer__subtext-location, .footer__subtext-contact {
-    font-size: 0.88rem;
-    line-height: 0.7rem;
+  .footer__subtext-company, .footer__subtext-location {
+    margin: 0.625rem 0 0;
+  }
+  .footer__subtext-address, .footer__subtext-contact {
     margin: 2.25rem 0 0;
   }
   .footer__copyright {
     padding-top: 2rem;
-    font-size: 0.85rem;
+    font-size: 0.875rem;
   }
 }
 @media screen and (min-width: 1280px) {
@@ -255,21 +235,21 @@ p {
   .footer__text-box-three {
     margin-right: 17rem;
   }
-  .footer__subtext-name, .footer__subtext-location, .footer__subtext-contact {
-    font-size: 0.8rem;
+  .footer__subtext-name, .footer__subtext-address, .footer__subtext-contact, .footer__subtext-location, .footer__subtext-company {
+    font-size: 0.8125rem;
     line-height: 0.7rem;
     letter-spacing: 0.75px;
     margin: 1.5rem 0 0;
   }
-  .footer__subtext-location, .footer__subtext-contact {
-    font-size: 0.8rem;
-    line-height: 0.7rem;
-    letter-spacing: 0.75px;
+  .footer__subtext-address, .footer__subtext-contact {
     margin: 2rem 0 0;
+  }
+  .footer__subtext-location, .footer__subtext-company {
+    margin: 0.625rem 0 0;
   }
   .footer__copyright {
     padding-top: 1.5rem;
-    font-size: 0.85rem;
+    font-size: 0.875rem;
   }
 }
 
@@ -392,7 +372,7 @@ p {
   color: #323232;
 }
 .shows__date-heading-top, .shows__venue-heading-top, .shows__location-heading-top, .shows__date-heading, .shows__venue-heading, .shows__location-heading {
-  font-size: 10px;
+  font-size: 0.625rem;
   text-transform: uppercase;
   padding-bottom: 0.25rem;
   color: #afafaf;
@@ -400,7 +380,7 @@ p {
 }
 .shows__venue, .shows__date, .shows__date-top, .shows__venue-top, .shows__location, .shows__location-top {
   padding-bottom: 0.5rem;
-  font-size: 0.8rem;
+  font-size: 0.8125rem;
 }
 .shows__date, .shows__date-top {
   font-family: "Avenir-Demi";
@@ -408,7 +388,7 @@ p {
 .shows__button {
   background: #323232;
   color: white;
-  font: 0.85rem "Avenir-Demi";
+  font: 0.875rem "Avenir-Demi";
   letter-spacing: 1px;
   border: none;
   border-radius: 0.25rem;
@@ -440,16 +420,14 @@ p {
   .shows__date, .shows__venue, .shows__date-top, .shows__location {
     padding-bottom: 0;
   }
-  .shows__date-heading-top {
+  .shows__date-heading-top, .shows__venue-heading-top, .shows__location-heading-top {
     padding-top: 1.5rem;
     width: 30%;
   }
   .shows__venue-heading-top {
-    padding-top: 1.5rem;
     width: 25%;
   }
   .shows__location-heading-top {
-    padding-top: 1.5rem;
     width: 15%;
   }
   .shows__date-heading, .shows__venue-heading, .shows__location-heading {
@@ -465,7 +443,6 @@ p {
     max-width: 21%;
     height: 100%;
     padding: 0.9rem 0 0.7rem;
-    font-family: "avenir-regular";
   }
   .shows__button-top {
     margin-top: 2rem;
@@ -509,7 +486,6 @@ p {
     max-width: 18%;
     height: 100%;
     padding: 0.9rem 0 0.7rem;
-    font-family: "avenir-regular";
   }
   .shows__button-top {
     margin-top: 3.25rem;

@@ -47,8 +47,6 @@ let commentInput = document.createElement('input');
 commentInput.setAttribute('type', 'text');
 commentInput.setAttribute('name', 'comment');
 commentInput.setAttribute('placeholder', 'Add a new comment');
-commentInput.setAttribute('rows', '6');
-commentInput.setAttribute('cols', '10');
 commentInput.classList.add('conversation__form-input-comment');
 mainForm.appendChild(commentInput);
 

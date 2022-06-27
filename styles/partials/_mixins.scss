@@ -9,16 +9,3 @@
         @content;
     }
 }
-
-@mixin header__list-item-bio {
-    padding-bottom: 1.5rem;
-    padding-top: 1.5rem;
-    margin-right: 3.5rem;
-    min-width: 38%;
-}
-
-@mixin header__list-item-shows {
-    padding-bottom: 1.5rem;
-    padding-top: 1.5rem;
-    min-width: 25%;
-}

@@ -118,7 +118,7 @@
         color: #323232;
     }
     &__date-heading-top, &__venue-heading-top, &__location-heading-top, &__date-heading, &__venue-heading, &__location-heading {
-        font-size: 10px;
+        font-size: .625rem;
         text-transform: uppercase;
         padding-bottom: .25rem;
         color: #afafaf;
@@ -126,7 +126,7 @@
     }
     &__venue, &__venue-top, &__location, &__location-top {
         padding-bottom: .5rem;
-        font-size: .8rem;
+        font-size: .8125rem;
     }
     &__date, &__date-top {
         @extend .shows__venue;
@@ -135,7 +135,7 @@
     &__button {
         background: #323232;
         color: white;
-        font: .85rem "Avenir-Demi";
+        font: .875rem "Avenir-Demi";
         letter-spacing: 1px;
         border: none;
         border-radius: .25rem;
@@ -166,16 +166,14 @@
         &__date, &__venue, &__location {
             padding-bottom: 0;
         }
-        &__date-heading-top {
+        &__date-heading-top, &__venue-heading-top, &__location-heading-top {
             padding-top: 1.5rem;
             width: 30%;
         }
         &__venue-heading-top {
-            padding-top: 1.5rem;
             width: 25%
         }
         &__location-heading-top{
-            padding-top: 1.5rem;
             width: 15%;
         }
         &__date-heading, &__venue-heading, &__location-heading {
@@ -191,7 +189,6 @@
             max-width: 21%;
             height: 100%;
             padding: .9rem 0 .7rem;
-            font-family: 'avenir-regular'
         }
         &__button-top {
             margin-top: 2rem;
@@ -235,7 +232,6 @@
             max-width: 18%;
             height: 100%;
             padding: .9rem 0 .7rem;
-            font-family: 'avenir-regular'
         }
         &__button-top {
             margin-top: 3.25rem;

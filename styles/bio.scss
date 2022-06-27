@@ -31,7 +31,7 @@
     @include tablet {
         &__heading {
             padding: 12rem 2.25rem;
-            font-size: 3.5rem;
+            font-size: 3.75rem;
         }
     }
     @include desktop {
@@ -66,13 +66,13 @@
         margin: .35rem 0 1.5rem;
     }
     &__subheading {
-        font: 0.85rem 'Avenir-Regular';
+        font: 0.875rem 'Avenir-Regular';
         margin-bottom: 0.2rem;
     }
     &__text-one, &__text-two {
         @extend .about__subheading;
         line-height: 1.15rem;
-        font-size: .8rem;
+        font-size: .8125rem;
         margin: .8rem .75rem .2rem 0;
     }
     @include tablet {
@@ -83,14 +83,14 @@
             margin: 1.25rem 4.5rem .75rem;
         }
         &__heading {
-            font-size: 2rem;
+            font-size: 2.25rem;
             padding: 2rem 0 0 1.25rem;
         }
         &__image {
             width: 100%;
         }
         &__quote {
-            font-size: 1.35rem;
+            font-size: 1.5rem;
             line-height: 2rem;
             word-spacing: 1.1px;
         }
@@ -103,28 +103,26 @@
         &__text-box {
             display: flex;
         }
-        &__text-one {
-            font: .85rem 'Avenir-Regular';
-            line-height: 1.4rem;
-            margin-right: 1.75rem;
-        }
-        &__text-two {
-            font: .85rem 'Avenir-Regular';
+        &__text-two, &__text-one {
+            font: .875rem 'Avenir-Regular';
             line-height: 1.4rem;
             margin-right: 0;
+        }
+        &__text-one {
+            margin-right: 1.75rem;
         }
     }
     @include desktop {
 
         &__heading {
             padding: 2rem 0 .5rem 7rem;
-            font-size: 2.3rem;
+            font-size: 2.25rem;
         }
         &__image-box {
             margin: 1.25rem 12.5rem;
         }
         &__quote {
-            font-size: 1.35rem;
+            font-size: 1.5rem;
             line-height: 2rem;
             word-spacing: 1.1px;
             padding: 0 12rem .5rem 0;
@@ -158,7 +156,7 @@
             border-bottom: 1px #e1e1e1 solid;
         }
         &-name-heading, &-comment-heading {
-            font-size: 10px;
+            font-size: .625rem;
             text-transform: uppercase;
             padding-bottom: 4px;
             color: #afafaf;
@@ -253,7 +251,7 @@
                 margin-top: 1rem;
             }
             &-name-heading, &-comment-heading {
-                font-size: .7rem;
+                font-size: .75rem;
             }
             &-input-name {
                 padding: 1rem;
@@ -274,10 +272,10 @@
             width: 89%;
         }
         &__comment-name, &-date {
-            font-size: .85rem;
+            font-size: .875rem;
         }
         &__comment-text {
-            font-size: .85rem;
+            font-size: .875rem;
             line-height: 1.5rem;
         }
         &__comment-avatar-box {
